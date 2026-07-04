@@ -11,6 +11,9 @@ export const siteConfig = {
   email: "zhylkobogdan@gmail.com",
   ogImage: "/image-preview.png",
 
+  // Featured tech (language-neutral proper nouns).
+  stack: ["Flutter", "Dart", "React", "Next.js", "TypeScript"],
+
   nav: [
     { key: "home", href: "/" },
     { key: "portfolio", href: "/portfolio" },

@@ -6,6 +6,7 @@ import Typed from "typed.js";
 import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
+import { siteConfig } from "@/config/site";
 import ProfileImage from "@/components/ui/ProfileImage/ProfileImage";
 import { animateIt } from "@/lib/animate";
 import { cn } from "@/lib/cn";
@@ -39,19 +40,27 @@ export default function Hero() {
         <div className={styles.maininfo}>
           <h2 className={styles.maininfo_name}>{t("name")}</h2>
           <h3 className={styles.maininfo_type}>{t("role")}</h3>
+
+          <ul className={styles.maininfo_stack}>
+            {siteConfig.stack.map((tech) => (
+              <li key={tech} className={styles.maininfo_tag}>
+                {tech}
+              </li>
+            ))}
+          </ul>
+
           <div className={styles.maininfo_desc}>
             <p className={styles.maininfo_text}>{t("greeting")}</p>
             <p className={styles.maininfo_text}>
-              {t("introExperience")}
-              <br />
               {t.rich("introBuild", {
                 typed: () => <span id="js-typed-init"></span>,
               })}
               <br />
-              {t("introCycle")}
+              {t("introExperience")}
             </p>
-            <p className={styles.maininfo_text}>{t("introClients")}</p>
+            <p className={styles.maininfo_text}>{t("introApproach")}</p>
           </div>
+
           <div className={styles.maininfo_buttons}>
             <Link
               className={cn(styles.maininfo_btn, "m-button", "hover-cursor")}
@@ -61,6 +70,12 @@ export default function Hero() {
             >
               {t("cta")}
             </Link>
+            <a
+              className={cn(styles.maininfo_contact, "hover-cursor")}
+              href={`mailto:${siteConfig.email}`}
+            >
+              {t("ctaContact")}
+            </a>
           </div>
         </div>
       </div>
