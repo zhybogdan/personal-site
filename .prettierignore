@@ -1,0 +1,15 @@
+# build / generated
+.next
+.velite
+out
+build
+
+# dependencies & locks
+node_modules
+package-lock.json
+
+# legacy CRA source (kept for reference)
+_legacy
+
+# static assets
+public

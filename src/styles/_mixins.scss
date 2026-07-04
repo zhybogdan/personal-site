@@ -1,0 +1,17 @@
+@use "sass:map";
+@use "tokens" as *;
+
+// Responsive breakpoint mixin.
+//   @include bp(sm) { ... }      -> named token from $breakpoints
+//   @include bp(890px) { ... }   -> raw max-width value
+@mixin bp($key) {
+  @if map.has-key($breakpoints, $key) {
+    @media (max-width: map.get($breakpoints, $key)) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $key) {
+      @content;
+    }
+  }
+}

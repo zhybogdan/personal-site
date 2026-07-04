@@ -1,0 +1,33 @@
+.nomatch {
+  padding: 30px;
+}
+
+.nomatch_title {
+  margin: 0 0 40px;
+  font-size: 40px;
+}
+
+.nomatch_text {
+  margin: 0;
+  font-size: 20px;
+}
+
+.nomatch_linkhome {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 1px;
+    background-color: var(--accentred);
+    transition: all 200ms linear;
+    z-index: -1;
+  }
+  &:hover {
+    &::before {
+      height: 7px;
+    }
+  }
+}

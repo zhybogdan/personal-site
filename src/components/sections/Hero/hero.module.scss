@@ -1,0 +1,207 @@
+@use "mixins" as *;
+
+.home {
+  position: relative;
+  height: 100vh;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background: var(--accent);
+  }
+
+  &_wrapp {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+.maininfo {
+  position: relative;
+  margin-left: 100px;
+  flex-basis: 44%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -160px;
+    top: 20px;
+    width: 120px;
+    height: 5px;
+    background: var(--accent);
+    z-index: 10;
+  }
+
+  &_name {
+    margin: 0;
+    font-size: 70px;
+    font-weight: 900;
+    line-height: 1.2;
+
+    span {
+      color: var(--accentred);
+    }
+  }
+
+  &_type {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accentred);
+  }
+
+  &_desc {
+    margin-bottom: 30px;
+  }
+
+  &_text {
+    font-size: 17px;
+    margin: 8px 0;
+    span {
+      color: var(--accentred);
+    }
+  }
+
+  &_buttons {
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-right: 20px;
+      transition: all 0.3s ease-out;
+    }
+  }
+}
+
+@include bp(xl) {
+  .maininfo {
+    margin-left: 60px;
+    flex-basis: 50%;
+  }
+}
+
+@include bp(lg) {
+  .maininfo {
+    margin-left: 40px;
+    flex-basis: 60%;
+  }
+
+  .maininfo_name {
+    font-size: 64px;
+  }
+
+  .maininfo_text {
+    font-size: 16px;
+  }
+}
+
+@include bp(ml) {
+  .home::before,
+  .maininfo_name br {
+    display: none;
+  }
+
+  .home_wrapp {
+    flex-direction: column;
+  }
+
+  .maininfo {
+    margin-left: 0px;
+    flex-basis: auto;
+    width: 100%;
+  }
+}
+
+@include bp(890px) {
+  .maininfo_name {
+    font-size: 50px;
+  }
+}
+
+@include bp(sm) {
+  .home {
+    height: auto;
+  }
+
+  .maininfo_name {
+    font-size: 68px;
+  }
+
+  .maininfo_type {
+    font-size: 22px;
+  }
+
+  .maininfo_text {
+    font-size: 20px;
+  }
+}
+
+@include bp(xxs) {
+  .maininfo_name {
+    font-size: 50px;
+  }
+
+  .maininfo_text {
+    margin: 10px 0;
+  }
+}
+
+@include bp(425px) {
+  .maininfo_text {
+    font-size: 18px;
+  }
+
+  .maininfo_btn {
+    width: 112px;
+    min-height: 45px;
+    font-size: 16px;
+  }
+}
+
+@include bp(414px) {
+  .maininfo_name {
+    font-size: 38px;
+  }
+
+  .maininfo_type {
+    font-size: 18px;
+  }
+
+  .maininfo_text {
+    font-size: 16px;
+  }
+}
+
+@include bp(375px) {
+  .maininfo_name {
+    font-size: 43px;
+  }
+
+  .maininfo_type {
+    font-size: 16px;
+  }
+
+  .maininfo_text {
+    font-size: 15px;
+  }
+}
+
+@include bp(350px) {
+  .maininfo_name {
+    font-size: 39px;
+  }
+
+  .maininfo_type {
+    font-size: 14px;
+  }
+
+  .maininfo_buttons a {
+    width: 120px;
+    min-height: 45px;
+    font-size: 16px;
+  }
+}

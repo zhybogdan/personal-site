@@ -1,0 +1,33 @@
+// Design tokens (SCSS). Colors are also exposed as CSS custom properties
+// in globals.scss for runtime theming (see :root there).
+
+// --- Colors (SCSS mirror of the CSS custom properties) --- //
+$color-accent: #18181e;
+$color-accent-red: rgb(216, 62, 62);
+$color-white: #fff;
+
+// --- Breakpoints (max-width, matching the existing responsive design) --- //
+$breakpoints: (
+  "xxl": 1600px,
+  "xl": 1440px,
+  "lg": 1280px,
+  "ml": 1200px,
+  "md": 992px,
+  "sm": 768px,
+  "xs": 576px,
+  "xxs": 480px,
+);
+
+// --- Spacing scale --- //
+$space-1: 5px;
+$space-2: 10px;
+$space-3: 15px;
+$space-4: 20px;
+$space-5: 30px;
+$space-6: 40px;
+$space-8: 60px;
+$space-10: 100px;
+
+// --- Radii --- //
+$radius-sm: 4px;
+$radius-md: 8px;

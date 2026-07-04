@@ -1,0 +1,263 @@
+@use "mixins" as *;
+
+// --- List wrapper --- //
+.porfolio {
+  padding: 30px;
+}
+
+.porfolio_title {
+  margin: 0 0 60px;
+  font-size: 40px;
+  line-height: 40px;
+}
+
+.porfolio_items {
+  margin: 0 0 100px;
+  padding: 0 0 0 60px;
+}
+
+@include bp(xl) {
+  .porfolio_items {
+    padding: 0 0 0 50px;
+  }
+}
+
+@include bp(lg) {
+  .porfolio_title {
+    font-size: 38px;
+  }
+
+  .porfolio_items {
+    padding: 0 0 0 20px;
+  }
+}
+
+@include bp(ml) {
+  .porfolio {
+    padding: 0;
+  }
+}
+
+@include bp(md) {
+  .porfolio_items {
+    padding: 0;
+  }
+
+  .porfolio_title {
+    font-size: 36px;
+  }
+}
+
+@include bp(sm) {
+  .porfolio_items {
+    margin: 0 0 20px;
+  }
+}
+
+@include bp(xs) {
+  .porfolio_list {
+    padding-left: 20px;
+  }
+}
+
+@include bp(425px) {
+  .porfolio_title {
+    margin: 0 0 40px;
+    font-size: 26px;
+  }
+}
+
+@include bp(375px) {
+  .porfolio_title {
+    margin: 0 0 30px;
+  }
+
+  .porfolio_list {
+    padding-left: 15px;
+  }
+}
+
+@include bp(350px) {
+  .porfolio_title {
+    font-size: 24px;
+  }
+
+  .porfolio_list {
+    padding-left: 10px;
+  }
+}
+
+// --- Work card --- //
+.portfolitm {
+  position: relative;
+  margin-bottom: 100px;
+  width: max-content;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &_info {
+    font-size: 14px;
+    transition: all 450ms ease-in-out;
+  }
+
+  &_link {
+    display: block;
+    user-select: none;
+    font-size: 75px;
+
+    &_title {
+      position: relative;
+      display: block;
+      margin-bottom: 5px;
+      line-height: 1.2;
+      filter: contrast(200%);
+
+      &::before {
+        position: absolute;
+        width: 0;
+        content: attr(data-text);
+        overflow: hidden;
+        color: var(--accentred);
+        transition: all 800ms cubic-bezier(0.84, 0, 0.08, 0.99);
+      }
+    }
+  }
+
+  &:hover {
+    .portpreview {
+      width: 600px;
+    }
+
+    .portfolitm_info {
+      transform: translateX(15px);
+    }
+
+    span {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.portpreview {
+  position: fixed;
+  top: 15%;
+  left: 54%;
+  width: 0;
+  height: 400px;
+
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: 50%, 50%;
+  background-repeat: no-repeat;
+
+  background-color: var(--accentred);
+
+  transition: all 1000ms cubic-bezier(0.84, 0, 0.08, 0.99);
+  z-index: -1;
+}
+
+@include bp(xl) {
+  .portfolitm_link {
+    font-size: 64px;
+  }
+
+  .portfolitm:hover .portpreview {
+    width: 500px;
+  }
+
+  .portfolitm {
+    margin-bottom: 85px;
+  }
+
+  .portpreview {
+    left: 54%;
+    height: 320px;
+  }
+}
+
+@include bp(lg) {
+  .portfolitm_link {
+    font-size: 56px;
+  }
+
+  .portfolitm {
+    margin-bottom: 75px;
+  }
+
+  .portpreview {
+    top: 19%;
+    height: 290px;
+  }
+
+  .portfolitm:hover .portpreview {
+    width: 480px;
+  }
+}
+
+@include bp(ml) {
+  .portpreview {
+    display: none;
+  }
+
+  .portfolitm_info {
+    transform: none !important;
+  }
+}
+
+@include bp(md) {
+  .portfolitm_link {
+    font-size: 46px;
+  }
+}
+
+@include bp(xs) {
+  .portfolitm {
+    margin-bottom: 50px;
+    &_link {
+      font-size: 32px;
+    }
+
+    span {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@include bp(425px) {
+  .portfolitm {
+    margin-bottom: 36px;
+  }
+
+  .portfolitm_link {
+    font-size: 28px;
+  }
+}
+
+@include bp(414px) {
+  .portfolitm_info {
+    font-size: 13px;
+  }
+}
+
+@include bp(375px) {
+  .portfolitm_info {
+    font-size: 12px;
+  }
+}
+
+@include bp(350px) {
+  .portfolitm_link {
+    font-size: 26px;
+  }
+
+  .portfolitm_info {
+    font-size: 10px;
+  }
+}

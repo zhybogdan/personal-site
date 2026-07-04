@@ -1,0 +1,57 @@
+@use "mixins" as *;
+
+.mainimage {
+  position: relative;
+  width: 520px;
+  height: 85vh;
+  background: var(--accentred);
+  box-shadow: 0 3px 36px -6px rgba(0, 0, 0, 0.75);
+
+  &_img {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: all 250ms linear;
+  }
+
+  &_front {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+@media (min-height: 1081px) {
+  .mainimage {
+    height: 900px;
+  }
+}
+
+@include bp(ml) {
+  .mainimage {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@include bp(sm) {
+  .mainimage {
+    height: 470px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 20px -6px rgba(0, 0, 0, 0.75);
+  }
+
+  .mainimage_img {
+    transform: translate(7px, 7px) !important;
+  }
+}
+
+@include bp(414px) {
+  .mainimage {
+    height: 360px;
+  }
+}
