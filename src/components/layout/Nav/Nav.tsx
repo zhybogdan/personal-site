@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 
+import { Link, usePathname } from "@/i18n/navigation";
 import { siteConfig } from "@/config/site";
 import SocialLinks from "@/components/ui/SocialLinks/SocialLinks";
 import useScrollBlock from "@/lib/useScrollBlock";
@@ -15,6 +15,7 @@ type NavProps = {
 };
 
 export default function Nav({ isOpen, setIsOpen }: NavProps) {
+  const t = useTranslations("nav");
   const pathname = usePathname();
   const [blockScroll, allowScroll] = useScrollBlock();
 
@@ -37,7 +38,7 @@ export default function Nav({ isOpen, setIsOpen }: NavProps) {
                 )}
                 onClick={() => setIsOpen(false)}
               >
-                {item.name}
+                {t(item.key)}
               </Link>
             </li>
           ))}

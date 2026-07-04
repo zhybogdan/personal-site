@@ -31,14 +31,14 @@ content/
 
 ## Scripts
 
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Start the dev server (http://localhost:3000) |
-| `npm run build` | Production build (runs the velite content build first) |
-| `npm start` | Serve the production build |
-| `npm run lint` | ESLint |
-| `npm run format` | Format with Prettier |
-| `npm run typecheck` | TypeScript check |
+| Command             | Description                                            |
+| ------------------- | ------------------------------------------------------ |
+| `npm run dev`       | Start the dev server (http://localhost:3000)           |
+| `npm run build`     | Production build (runs the velite content build first) |
+| `npm start`         | Serve the production build                             |
+| `npm run lint`      | ESLint                                                 |
+| `npm run format`    | Format with Prettier                                   |
+| `npm run typecheck` | TypeScript check                                       |
 
 ## Local development
 

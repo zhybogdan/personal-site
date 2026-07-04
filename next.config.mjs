@@ -1,4 +1,5 @@
 import path from "node:path";
+import createNextIntlPlugin from "next-intl/plugin";
 
 // Build the velite content layer before Next compiles.
 const isDev = process.argv.includes("dev");
@@ -9,6 +10,8 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
   await build({ watch: isDev, clean: !isDev });
 }
 
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -18,4 +21,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);
