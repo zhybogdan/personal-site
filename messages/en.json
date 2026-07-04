@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "home": {
+      "title": "Bohdan | Turnkey website development",
+      "description": "Development of reactive turnkey websites",
+      "keywords": [
+        "selling website creation",
+        "website from scratch",
+        "website development and promotion",
+        "web development",
+        "wordpress",
+        "turnkey website development",
+        "website cost",
+        "order a website",
+        "order a landing page",
+        "landing page development"
+      ]
+    },
+    "portfolio": {
+      "title": "Portfolio | Bohdan — turnkey website development",
+      "description": "Commercial projects: landing pages, corporate sites, business cards."
+    }
+  },
+  "hero": {
+    "name": "Bohdan",
+    "role": "Freelancer · Frontend / Web Developer",
+    "greeting": "Hello, humanity!",
+    "introExperience": "I am a web developer with 3+ years of experience.",
+    "introBuild": "I build <typed></typed> websites and more.",
+    "introCycle": "Full cycle — from idea to launch and support.",
+    "introClients": "I work with entrepreneurs and company managers who want to find new clients, present themselves as a modern and successful company, try a new kind of advertising, or simply refresh their old website with a 90s design.",
+    "cta": "Portfolio",
+    "photoAlt": "A photo of me",
+    "typed": [
+      "landing page",
+      "multi-page",
+      "catalogs",
+      "corporate",
+      "quizzes",
+      "business cards",
+      "portals"
+    ]
+  },
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio"
+  },
+  "sidebar": {
+    "emailLabel": "Email",
+    "findMe": "Find me",
+    "menuOpen": "Menu",
+    "menuClose": "Close"
+  },
+  "footer": {
+    "slogan": "Turnkey <b>website</b> development",
+    "rights": "All rights reserved | {year}"
+  },
+  "portfolio": {
+    "title": "Commercial projects"
+  },
+  "notFound": {
+    "title": "Sorry, this page does not exist",
+    "back": "Go back to the <link>home page</link>"
+  }
+}

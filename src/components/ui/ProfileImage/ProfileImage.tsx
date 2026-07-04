@@ -5,7 +5,7 @@ import type { MouseEvent } from "react";
 import { animateIt } from "@/lib/animate";
 import styles from "./profileimage.module.scss";
 
-export default function ProfileImage() {
+export default function ProfileImage({ alt = "" }: { alt?: string }) {
   const handleMouseMove = (e: MouseEvent<HTMLImageElement>) => {
     animateIt(e);
   };
@@ -15,7 +15,7 @@ export default function ProfileImage() {
       <img
         className={`${styles.mainimage_img} ${styles.mainimage_front}`}
         src="/assets/mainimage-1.png"
-        alt="Фотография. Я собственной персоной"
+        alt={alt}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseMove}
       />

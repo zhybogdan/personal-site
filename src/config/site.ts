@@ -1,42 +1,19 @@
-export type NavItem = { name: string; href: string };
+export type NavItem = { key: "home" | "portfolio"; href: string };
 export type SocialItem = {
   name: string;
   href: string;
   icon: "telegram" | "linkedin";
 };
 
+// Structural, language-neutral config. All display text lives in messages/*.
 export const siteConfig = {
-  name: "Богдан",
-  role: "Freelancer | Frontend / Web Developer",
   url: "https://bogdan.starcoding.top",
   email: "zhylkobogdan@gmail.com",
-  slogan: "Разработка сайтов под ключ",
-
-  seo: {
-    title: "Богдан | Разработка сайтов под ключ",
-    description: "Разработка реактивных сайтов под ключ",
-    keywords: [
-      "Создание продающих сайтов",
-      "создание сайта с нуля",
-      "создание и продвижение сайтов",
-      "создание интернет сайта",
-      "wordpress",
-      "создание сайтов под ключ",
-      "стоимость создания сайта",
-      "заказать создание сайта",
-      "заказать лендинг пейдж",
-      "заказать landing page",
-      "Разработка Landing page",
-    ],
-    ogTitle: "Разработка реактивных сайтов под ключ",
-    ogDescription: "Разработка сайтов под ключ от маркетинга до деплоя",
-    ogImage: "/image-preview.png",
-    locale: "ru_RU",
-  },
+  ogImage: "/image-preview.png",
 
   nav: [
-    { name: "Главная", href: "/" },
-    { name: "Портфолио", href: "/portfolio" },
+    { key: "home", href: "/" },
+    { key: "portfolio", href: "/portfolio" },
   ] as NavItem[],
 
   socials: [

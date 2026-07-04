@@ -2,29 +2,21 @@
 
 import { useEffect } from "react";
 import type { MouseEvent } from "react";
-import Link from "next/link";
 import Typed from "typed.js";
+import { useTranslations } from "next-intl";
 
-import { siteConfig } from "@/config/site";
+import { Link } from "@/i18n/navigation";
 import ProfileImage from "@/components/ui/ProfileImage/ProfileImage";
 import { animateIt } from "@/lib/animate";
 import { cn } from "@/lib/cn";
 import styles from "./hero.module.scss";
 
-const TYPED_STRINGS = [
-  "landing page",
-  "многостраничные",
-  "каталоги",
-  "корпоративные",
-  "квизы",
-  "визитки",
-  "порталы",
-];
-
 export default function Hero() {
+  const t = useTranslations("hero");
+
   useEffect(() => {
     const typed = new Typed("#js-typed-init", {
-      strings: TYPED_STRINGS,
+      strings: t.raw("typed") as string[],
       loop: true,
       typeSpeed: 80,
       backSpeed: 50,
@@ -34,7 +26,7 @@ export default function Hero() {
     return () => {
       typed.destroy();
     };
-  }, []);
+  }, [t]);
 
   const handleMouseMove = (e: MouseEvent<HTMLAnchorElement>) => {
     animateIt(e);
@@ -43,25 +35,22 @@ export default function Hero() {
   return (
     <div className={styles.home}>
       <div className={styles.home_wrapp}>
-        <ProfileImage />
+        <ProfileImage alt={t("photoAlt")} />
         <div className={styles.maininfo}>
-          <h2 className={styles.maininfo_name}>{siteConfig.name}</h2>
-          <h3 className={styles.maininfo_type}>{siteConfig.role}</h3>
+          <h2 className={styles.maininfo_name}>{t("name")}</h2>
+          <h3 className={styles.maininfo_type}>{t("role")}</h3>
           <div className={styles.maininfo_desc}>
-            <p className={styles.maininfo_text}>Привет человечество!</p>
+            <p className={styles.maininfo_text}>{t("greeting")}</p>
             <p className={styles.maininfo_text}>
-              Я есть веб-разработчик с опытом больше 3+ лет.
+              {t("introExperience")}
               <br />
-              Разрабатываю <span id="js-typed-init"></span> сайты и т.д.
+              {t.rich("introBuild", {
+                typed: () => <span id="js-typed-init"></span>,
+              })}
               <br />
-              Полный цикл работ, от идеи до реализации и поддержки.
+              {t("introCycle")}
             </p>
-            <p className={styles.maininfo_text}>
-              Работаю с предпринимателями и менеджерами компаний, которые хотят
-              найти новых клиентов, представить себя как современную и успешную
-              компанию, использовать новый вид рекламы или же просто обновить
-              свой старый сайт с дизайном из 90-х.
-            </p>
+            <p className={styles.maininfo_text}>{t("introClients")}</p>
           </div>
           <div className={styles.maininfo_buttons}>
             <Link
@@ -70,7 +59,7 @@ export default function Hero() {
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseMove}
             >
-              Портфолио
+              {t("cta")}
             </Link>
           </div>
         </div>

@@ -1,5 +1,8 @@
-import Link from "next/link";
+"use client";
 
+import { useTranslations } from "next-intl";
+
+import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/config/site";
 import SocialLinks from "@/components/ui/SocialLinks/SocialLinks";
 import { cn } from "@/lib/cn";
@@ -10,6 +13,8 @@ type SidebarProps = {
 };
 
 export default function Sidebar({ handleNavigation, isOpen }: SidebarProps) {
+  const t = useTranslations("sidebar");
+
   return (
     <div className="sidebar">
       <div className="sidebar_wrapp">
@@ -23,20 +28,20 @@ export default function Sidebar({ handleNavigation, isOpen }: SidebarProps) {
           className={cn("navigation_btn", isOpen && "is-active")}
           onClick={handleNavigation}
         >
-          {isOpen ? "Закрыть" : "Меню"}
+          {isOpen ? t("menuClose") : t("menuOpen")}
         </button>
 
         <div className="sidebar_bottom">
           <div className="sidebar_contact">
             <div className="sidebar_somelink">
-              <h4>Почта</h4>
+              <h4>{t("emailLabel")}</h4>
               <a className="hover-cursor" href={`mailto:${siteConfig.email}`}>
                 {siteConfig.email}
               </a>
             </div>
           </div>
           <div className="sidebar_social">
-            <h4>Найти меня</h4>
+            <h4>{t("findMe")}</h4>
             <SocialLinks />
           </div>
         </div>
