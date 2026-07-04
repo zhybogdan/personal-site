@@ -23,22 +23,20 @@
   },
   "hero": {
     "name": "Bohdan",
-    "role": "Freelancer · Frontend / Web Developer",
+    "role": "Software Engineer · Mobile & Web",
     "greeting": "Hello, humanity!",
-    "introExperience": "I am a web developer with 3+ years of experience.",
-    "introBuild": "I build <typed></typed> websites and more.",
-    "introCycle": "Full cycle — from idea to launch and support.",
-    "introClients": "I work with entrepreneurs and company managers who want to find new clients, present themselves as a modern and successful company, try a new kind of advertising, or simply refresh their old website with a 90s design.",
+    "introBuild": "I build <typed></typed> — from idea to launch.",
+    "introExperience": "A software engineer with 3+ years of experience across mobile and web.",
+    "introApproach": "I care about clean architecture, smooth UX, and products that ship and last.",
     "cta": "Portfolio",
+    "ctaContact": "Get in touch",
     "photoAlt": "A photo of me",
     "typed": [
-      "landing page",
-      "multi-page",
-      "catalogs",
-      "corporate",
-      "quizzes",
-      "business cards",
-      "portals"
+      "mobile apps",
+      "web apps",
+      "cross-platform UIs",
+      "Flutter apps",
+      "MVPs"
     ]
   },
   "nav": {
