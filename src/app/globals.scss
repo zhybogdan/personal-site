@@ -1,8 +1,23 @@
 :root {
-  // color pallet
-  // 292930 light dark / 18181e dark / 1D2228 dark
-  --accent: #18181e;
-  --accentred: rgb(216, 62, 62);
+  // ── Primitive palette ──────────────────────────────────────────
+  --ink-900: #0e0e12; // darkest — chrome / logo rail
+  --ink-800: #18181e; // brand near-black — dark surfaces & text
+  --ink-700: #292930; // raised dark
+  --paper: #ffffff;
+  --red-500: rgb(216, 62, 62); // accent
+
+  // ── Semantic tokens (purpose-based; reference primitives) ───────
+  --color-bg: var(--paper); // page background
+  --color-fg: var(--ink-800); // primary text
+  --color-accent: var(--red-500); // accent / highlight
+  --color-surface-invert: var(--ink-800); // dark surfaces (sidebar, buttons)
+  --color-on-invert: var(--paper); // text / icons on dark surfaces
+  --color-border: rgba(24, 24, 30, 0.14);
+  --color-muted: rgba(24, 24, 30, 0.6);
+
+  // ── Back-compat aliases (consumed by existing modules) ──────────
+  --accent: var(--color-fg);
+  --accentred: var(--color-accent);
 }
 
 ::selection {
