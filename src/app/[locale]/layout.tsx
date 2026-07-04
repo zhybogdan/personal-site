@@ -9,6 +9,7 @@ import "../globals.scss";
 
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
+import { localizedAlternates } from "@/lib/seo";
 import Cursor from "@/components/layout/Cursor/Cursor";
 import AppShell from "@/components/layout/AppShell/AppShell";
 
@@ -37,6 +38,7 @@ export async function generateMetadata({
     description: t("description"),
     keywords: t.raw("keywords") as string[],
     authors: [{ name: "bogdan.starcoding.top" }],
+    alternates: localizedAlternates(locale),
     manifest: "/manifest.json",
     icons: {
       icon: [{ url: "/favicon.png", sizes: "16x16", type: "image/png" }],
