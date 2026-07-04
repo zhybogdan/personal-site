@@ -1,14 +1,16 @@
 import { defineConfig, defineCollection, s } from "velite";
 
+const localized = s.object({ en: s.string(), uk: s.string() });
+
 const works = defineCollection({
   name: "Work",
   pattern: "works/**/*.md",
   schema: s
     .object({
-      title: s.string(),
-      firstWord: s.string(),
-      type: s.string(),
-      typesofwork: s.string(),
+      title: localized,
+      firstWord: localized,
+      type: localized,
+      typesofwork: localized,
       technologies: s.string(),
       link: s.string().url(),
       image: s.string(),
