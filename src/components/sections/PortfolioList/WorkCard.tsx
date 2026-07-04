@@ -1,14 +1,20 @@
-import type { Work } from "@content";
+import { useLocale } from "next-intl";
 
+import type { Work } from "@content";
 import styles from "./portfoliolist.module.scss";
 
 export default function WorkCard({ data }: { data: Work }) {
-  const { type, title, firstWord, typesofwork, image, link } = data;
+  const locale = useLocale() as "en" | "uk";
+
+  const title = data.title[locale];
+  const firstWord = data.firstWord[locale];
+  const type = data.type[locale];
+  const typesofwork = data.typesofwork[locale];
 
   return (
     <div className={styles.portfolitm}>
       <a
-        href={link}
+        href={data.link}
         target="_blank"
         rel="noopener noreferrer"
         className={styles.portfolitm_link}
@@ -27,7 +33,9 @@ export default function WorkCard({ data }: { data: Work }) {
       </a>
       <div
         className={styles.portpreview}
-        style={{ backgroundImage: `url('/assets/portfolio/${image}')` }}
+        style={{
+          backgroundImage: `url('/assets/portfolio/${data.image}')`,
+        }}
       ></div>
     </div>
   );
