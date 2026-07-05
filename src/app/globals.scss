@@ -121,6 +121,13 @@ article {
   }
 }
 
+// --- Scroll/entrance reveals: hidden start state, JS-gated to avoid FOUC.
+// The `.gsap-reveal` class is added to <html> by an inline script before first
+// paint, so no-JS users still see the content. --- //
+.gsap-reveal [data-reveal] {
+  opacity: 0;
+}
+
 // --- Respect users who prefer reduced motion: neutralize animations/transitions --- //
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -130,5 +137,10 @@ article {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  // Reveals never hide when motion is reduced.
+  .gsap-reveal [data-reveal] {
+    opacity: 1;
   }
 }
