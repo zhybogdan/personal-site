@@ -75,8 +75,19 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className={sourceSans.variable}>
+    <html
+      lang={locale}
+      className={sourceSans.variable}
+      suppressHydrationWarning
+    >
       <body>
+        {/* Hide reveal targets before first paint so the entrance has no FOUC.
+            Runs only with JS; no-JS users see everything unhidden. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('gsap-reveal')",
+          }}
+        />
         <NextIntlClientProvider>
           <Cursor />
           <AppShell>{children}</AppShell>

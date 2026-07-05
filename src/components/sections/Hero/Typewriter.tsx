@@ -46,5 +46,13 @@ export default function Typewriter({
     { scope: ref, dependencies: [words] },
   );
 
-  return <span ref={ref} className={className} aria-live="polite" />;
+  return (
+    <>
+      {/* Decorative scramble animation — hidden from screen readers to avoid
+          announcing every frame. */}
+      <span ref={ref} className={className} aria-hidden="true" />
+      {/* Static, accessible fallback so the sentence stays complete for SR. */}
+      <span className="sr-only">{words[0]}</span>
+    </>
+  );
 }

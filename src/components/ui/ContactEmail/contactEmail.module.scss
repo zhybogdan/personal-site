@@ -25,6 +25,35 @@
   }
 }
 
+.linkWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.copied {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 4px;
+
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: $color-white;
+  white-space: nowrap;
+
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity $dur-fast $ease-standard,
+    transform $dur-fast $ease-standard;
+  pointer-events: none;
+}
+
+.copiedShow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @include bp(lg) {
   .somelink a {
     font-size: $fs-sm;

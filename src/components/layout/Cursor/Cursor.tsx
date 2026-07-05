@@ -1,51 +1,60 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+
+import { gsap, useGSAP } from "@/lib/gsap";
 
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const cursor = cursorRef.current;
-    if (!cursor) return;
+  useGSAP(
+    () => {
+      const cursor = cursorRef.current;
+      if (!cursor) return;
 
-    cursor.style.transform = "translate3d(-20px, -20px, 0)";
+      // Hide off-screen until the first pointer move.
+      gsap.set(cursor, { x: -100, y: -100 });
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.classList?.contains("hover-cursor")) {
-        cursor.classList.add("app-cursor-hover");
-      }
+      const mm = gsap.matchMedia();
 
-      const { clientX, clientY } = e;
-      const mouseX = clientX - cursor.clientWidth / 2;
-      const mouseY = clientY - cursor.clientHeight / 2;
+      // `duration` is the follow lag: eased trail for most users, instant
+      // (0) when reduced motion is preferred.
+      const setup = (duration: number) => {
+        const xTo = gsap.quickTo(cursor, "x", { duration, ease: "power3" });
+        const yTo = gsap.quickTo(cursor, "y", { duration, ease: "power3" });
 
-      cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-    };
+        const onMove = (e: MouseEvent) => {
+          xTo(e.clientX - cursor.offsetWidth / 2);
+          yTo(e.clientY - cursor.offsetHeight / 2);
 
-    const handleMouseOut = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.classList?.contains("hover-cursor")) {
-        cursor.classList.remove("app-cursor-hover");
-      }
-    };
+          const target = e.target as HTMLElement;
+          cursor.classList.toggle(
+            "app-cursor-hover",
+            !!target.classList?.contains("hover-cursor"),
+          );
+        };
 
-    const handleMouseLeave = () => cursor.classList.add("app-cursor-leave");
-    const handleMouseEnter = () => cursor.classList.remove("app-cursor-leave");
+        const onLeave = () => cursor.classList.add("app-cursor-leave");
+        const onEnter = () => cursor.classList.remove("app-cursor-leave");
 
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseout", handleMouseOut);
-    document.addEventListener("mouseleave", handleMouseLeave);
-    document.addEventListener("mouseenter", handleMouseEnter);
+        document.addEventListener("mousemove", onMove);
+        document.addEventListener("mouseleave", onLeave);
+        document.addEventListener("mouseenter", onEnter);
 
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseout", handleMouseOut);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-      document.removeEventListener("mouseenter", handleMouseEnter);
-    };
-  }, []);
+        return () => {
+          document.removeEventListener("mousemove", onMove);
+          document.removeEventListener("mouseleave", onLeave);
+          document.removeEventListener("mouseenter", onEnter);
+        };
+      };
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => setup(0.5));
+      mm.add("(prefers-reduced-motion: reduce)", () => setup(0));
+
+      return () => mm.revert();
+    },
+    { scope: cursorRef },
+  );
 
   return <div className="app-cursor" ref={cursorRef}></div>;
 }

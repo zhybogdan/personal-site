@@ -12,7 +12,7 @@ export default function WorkCard({ data }: { data: Work }) {
   const typesofwork = data.typesofwork[locale];
 
   return (
-    <div className={styles.portfolitm}>
+    <div className={styles.portfolitm} data-reveal>
       <a
         href={data.link}
         target="_blank"

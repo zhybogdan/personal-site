@@ -30,6 +30,7 @@
     "introApproach": "I care about clean architecture, smooth UX, and products that ship and last.",
     "cta": "Portfolio",
     "ctaContact": "Get in touch",
+    "emailCopied": "Email copied ✓",
     "photoAlt": "A photo of me",
     "typed": [
       "mobile apps",
@@ -46,6 +47,7 @@
   "sidebar": {
     "home": "Go to home",
     "emailLabel": "Email",
+    "emailCopied": "Copied ✓",
     "findMe": "Find me",
     "menuOpen": "Menu",
     "menuClose": "Close"
