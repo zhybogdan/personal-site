@@ -32,7 +32,10 @@ export default function Sidebar({ handleNavigation, isOpen }: SidebarProps) {
 
         <div className={styles.sidebar_bottom}>
           <div>
-            <ContactEmail label={t("emailLabel")} />
+            <ContactEmail
+              label={t("emailLabel")}
+              copiedLabel={t("emailCopied")}
+            />
           </div>
           <div className={styles.sidebar_social}>
             <h4>{t("findMe")}</h4>

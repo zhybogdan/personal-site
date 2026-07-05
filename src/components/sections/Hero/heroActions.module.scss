@@ -7,6 +7,34 @@
   gap: $space-4;
 }
 
+.contactWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.copied {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: $space-1;
+
+  font-size: 13px;
+  color: var(--color-accent);
+  white-space: nowrap;
+
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity $dur-fast $ease-standard,
+    transform $dur-fast $ease-standard;
+  pointer-events: none;
+}
+
+.copiedShow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .contact {
   position: relative;
   font-weight: $fw-semibold;
