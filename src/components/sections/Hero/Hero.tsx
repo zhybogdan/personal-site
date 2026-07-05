@@ -6,9 +6,8 @@ import { useTranslations } from "next-intl";
 
 import { siteConfig } from "@/config/site";
 import ProfileImage from "@/components/ui/ProfileImage/ProfileImage";
-import Button from "@/components/ui/Button/Button";
-import Tag from "@/components/ui/Tag/Tag";
-import { cn } from "@/lib/cn";
+import StackList from "./StackList";
+import HeroActions from "./HeroActions";
 import styles from "./hero.module.scss";
 
 export default function Hero() {
@@ -36,11 +35,7 @@ export default function Hero() {
           <h2 className={styles.maininfo_name}>{t("name")}</h2>
           <h3 className={styles.maininfo_type}>{t("role")}</h3>
 
-          <ul className={styles.maininfo_stack}>
-            {siteConfig.stack.map((tech) => (
-              <Tag key={tech}>{tech}</Tag>
-            ))}
-          </ul>
+          <StackList items={siteConfig.stack} />
 
           <div className={styles.maininfo_desc}>
             <p className={styles.maininfo_text}>{t("greeting")}</p>
@@ -54,17 +49,7 @@ export default function Hero() {
             <p className={styles.maininfo_text}>{t("introApproach")}</p>
           </div>
 
-          <div className={styles.maininfo_buttons}>
-            <Button href="/portfolio" magnetic>
-              {t("cta")}
-            </Button>
-            <a
-              className={cn(styles.maininfo_contact, "hover-cursor")}
-              href={`mailto:${siteConfig.email}`}
-            >
-              {t("ctaContact")}
-            </a>
-          </div>
+          <HeroActions />
         </div>
       </div>
     </div>

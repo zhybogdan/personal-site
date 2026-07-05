@@ -1,8 +1,8 @@
 import { useTranslations } from "next-intl";
 import { works } from "@content";
 
-import WorkCard from "./WorkCard";
-import styles from "./portfoliolist.module.scss";
+import WorkCard from "./WorkCard/WorkCard";
+import styles from "./portfolioList.module.scss";
 
 export default function PortfolioList() {
   const t = useTranslations("portfolio");

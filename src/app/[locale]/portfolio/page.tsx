@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { localizedAlternates } from "@/lib/seo";
-import PortfolioList from "@/components/sections/PortfolioList/PortfolioList";
+import PortfolioList from "@/components/sections/Portfolio/PortfolioList";
 
 export async function generateMetadata({
   params,
