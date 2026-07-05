@@ -1,7 +1,7 @@
 import { useLocale } from "next-intl";
 
 import type { Work } from "@content";
-import styles from "./portfoliolist.module.scss";
+import styles from "./workCard.module.scss";
 
 export default function WorkCard({ data }: { data: Work }) {
   const locale = useLocale() as "en" | "uk";
