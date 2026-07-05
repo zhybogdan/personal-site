@@ -1,9 +1,9 @@
 "use client";
 
-import type { MouseEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { Link } from "@/i18n/navigation";
-import { animateIt } from "@/lib/animate";
+import { useMagnetic } from "@/lib/useMagnetic";
 import { cn } from "@/lib/cn";
 import styles from "./button.module.scss";
 
@@ -24,32 +24,21 @@ export default function Button({
   magnetic = false,
   className,
 }: ButtonProps) {
-  const handleMouse = magnetic
-    ? (e: MouseEvent<HTMLAnchorElement>) => animateIt(e)
-    : undefined;
+  const magneticRef = useMagnetic<HTMLAnchorElement>();
+  const ref = magnetic ? magneticRef : undefined;
 
   const classes = cn(styles.button, "hover-cursor", className);
 
   if (external) {
     return (
-      <a
-        href={href}
-        className={classes}
-        onMouseMove={handleMouse}
-        onMouseLeave={handleMouse}
-      >
+      <a href={href} ref={ref} className={classes}>
         {children}
       </a>
     );
   }
 
   return (
-    <Link
-      href={href}
-      className={classes}
-      onMouseMove={handleMouse}
-      onMouseLeave={handleMouse}
-    >
+    <Link href={href} ref={ref} className={classes}>
       {children}
     </Link>
   );

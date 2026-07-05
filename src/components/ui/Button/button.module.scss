@@ -22,8 +22,6 @@
   z-index: $z-base;
   overflow: hidden;
 
-  transition: all $dur-base ease-out;
-
   &::before {
     content: "";
     position: absolute;
