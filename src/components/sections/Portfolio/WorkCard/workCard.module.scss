@@ -1,3 +1,4 @@
+@use "tokens" as *;
 @use "mixins" as *;
 
 .portfolitm {
@@ -17,7 +18,7 @@
   &_link {
     display: block;
     user-select: none;
-    font-size: 75px;
+    font-size: $fs-display; // fluid 28 → 75
 
     &_title {
       position: relative;
@@ -74,10 +75,6 @@
 }
 
 @include bp(xl) {
-  .portfolitm_link {
-    font-size: 64px;
-  }
-
   .portfolitm:hover .portpreview {
     width: 500px;
   }
@@ -93,10 +90,6 @@
 }
 
 @include bp(lg) {
-  .portfolitm_link {
-    font-size: 56px;
-  }
-
   .portfolitm {
     margin-bottom: 75px;
   }
@@ -121,18 +114,9 @@
   }
 }
 
-@include bp(md) {
-  .portfolitm_link {
-    font-size: 46px;
-  }
-}
-
 @include bp(xs) {
   .portfolitm {
     margin-bottom: 50px;
-    &_link {
-      font-size: 32px;
-    }
 
     span {
       &::before {
@@ -145,10 +129,6 @@
 @include bp(425px) {
   .portfolitm {
     margin-bottom: 36px;
-  }
-
-  .portfolitm_link {
-    font-size: 28px;
   }
 }
 
@@ -165,10 +145,6 @@
 }
 
 @include bp(350px) {
-  .portfolitm_link {
-    font-size: 26px;
-  }
-
   .portfolitm_info {
     font-size: 10px;
   }
