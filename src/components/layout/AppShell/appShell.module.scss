@@ -1,0 +1,73 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+.container {
+  position: relative;
+  max-width: $container-max;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 400px 1fr 200px;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". . .";
+  min-height: 100vh;
+}
+
+@include bp(xxl) {
+  .wrapper {
+    grid-template-columns: 300px 1fr 200px;
+  }
+}
+
+@include bp(xl) {
+  .wrapper {
+    grid-template-columns: 275px 1fr 175px;
+  }
+}
+
+@include bp(lg) {
+  .wrapper {
+    grid-template-columns: 275px 1fr 160px;
+  }
+}
+
+@include bp(ml) {
+  .wrapper {
+    grid-template-columns: 255px 1fr 160px;
+  }
+
+  .main {
+    padding: $space-5;
+  }
+}
+
+@include bp(890px) {
+  .wrapper {
+    grid-template-columns: 255px 1fr 140px;
+  }
+
+  .main {
+    padding: $space-6 $space-4;
+  }
+}
+
+@include bp(sm) {
+  .wrapper {
+    grid-template: none;
+    grid-template-rows: auto 1fr auto;
+  }
+}
+
+@include bp(xxs) {
+  .main {
+    padding: $space-5 $space-4 $space-6;
+  }
+}
+
+@include bp(375px) {
+  .main {
+    padding: $space-5 $space-4;
+  }
+}

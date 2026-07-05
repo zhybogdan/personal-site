@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "home": {
+      "title": "Богдан — Software Engineer · Mobile & Web",
+      "description": "Інженер-програміст: мобільні та веб-застосунки на Flutter, React і Next.js — від ідеї до релізу.",
+      "keywords": [
+        "software engineer",
+        "розробник Flutter",
+        "мобільна розробка",
+        "Dart",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "кросплатформні застосунки",
+        "веб-розробка",
+        "фронтенд-розробник"
+      ]
+    },
+    "portfolio": {
+      "title": "Портфоліо — Богдан · Software Engineer",
+      "description": "Комерційні проєкти: лендинги, корпоративні сайти, візитки."
+    }
+  },
+  "hero": {
+    "name": "Богдан",
+    "role": "Software Engineer · Mobile & Web",
+    "greeting": "Привіт, людство!",
+    "introBuild": "Створюю <typed></typed> — від ідеї до релізу.",
+    "introExperience": "Інженер-програміст із досвідом понад 3 роки в мобільній та веб-розробці.",
+    "introApproach": "Ціную чисту архітектуру, зручний UX і продукти, які працюють довго.",
+    "cta": "Портфоліо",
+    "ctaContact": "Написати",
+    "photoAlt": "Моє фото",
+    "typed": [
+      "мобільні застосунки",
+      "вебзастосунки",
+      "кросплатформні UI",
+      "Flutter-застосунки",
+      "MVP"
+    ]
+  },
+  "nav": {
+    "home": "Головна",
+    "portfolio": "Портфоліо"
+  },
+  "sidebar": {
+    "home": "На головну",
+    "emailLabel": "Пошта",
+    "findMe": "Знайти мене",
+    "menuOpen": "Меню",
+    "menuClose": "Закрити"
+  },
+  "footer": {
+    "slogan": "<b>Мобільні</b> та веб-застосунки",
+    "rights": "Усі права захищено | {year}"
+  },
+  "portfolio": {
+    "title": "Комерційні проєкти"
+  },
+  "notFound": {
+    "title": "На жаль, такої сторінки не існує",
+    "back": "Повернутися на <link>головну</link>"
+  }
+}

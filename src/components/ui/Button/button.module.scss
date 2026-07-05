@@ -1,0 +1,49 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+// Solid magnetic button (was the global `.m-button` utility in globals.scss).
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  max-width: 100%;
+  min-height: 50px;
+  padding: 0 $space-2;
+
+  font-size: $fs-md;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--accent);
+  color: $color-white;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: $z-base;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    background-color: var(--accentred);
+    z-index: -1;
+    transition: transform 230ms $ease-standard;
+  }
+
+  &:hover::before {
+    transform: translateX(0);
+  }
+}
+
+@include bp(425px) {
+  .button {
+    width: 112px;
+    min-height: 45px;
+    font-size: $fs-sm;
+  }
+}

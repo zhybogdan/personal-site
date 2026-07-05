@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "home": {
+      "title": "Bohdan — Software Engineer · Mobile & Web",
+      "description": "Software engineer building mobile & web apps with Flutter, React and Next.js — from idea to launch.",
+      "keywords": [
+        "software engineer",
+        "Flutter developer",
+        "mobile app developer",
+        "Dart",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "cross-platform apps",
+        "web development",
+        "frontend developer"
+      ]
+    },
+    "portfolio": {
+      "title": "Portfolio — Bohdan · Software Engineer",
+      "description": "Commercial projects: landing pages, corporate sites, business cards."
+    }
+  },
+  "hero": {
+    "name": "Bohdan",
+    "role": "Software Engineer · Mobile & Web",
+    "greeting": "Hello, humanity!",
+    "introBuild": "I build <typed></typed> — from idea to launch.",
+    "introExperience": "A software engineer with 3+ years of experience across mobile and web.",
+    "introApproach": "I care about clean architecture, smooth UX, and products that ship and last.",
+    "cta": "Portfolio",
+    "ctaContact": "Get in touch",
+    "photoAlt": "A photo of me",
+    "typed": [
+      "mobile apps",
+      "web apps",
+      "cross-platform UIs",
+      "Flutter apps",
+      "MVPs"
+    ]
+  },
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio"
+  },
+  "sidebar": {
+    "home": "Go to home",
+    "emailLabel": "Email",
+    "findMe": "Find me",
+    "menuOpen": "Menu",
+    "menuClose": "Close"
+  },
+  "footer": {
+    "slogan": "<b>Mobile</b> & web engineering",
+    "rights": "All rights reserved | {year}"
+  },
+  "portfolio": {
+    "title": "Commercial projects"
+  },
+  "notFound": {
+    "title": "Sorry, this page does not exist",
+    "back": "Go back to the <link>home page</link>"
+  }
+}

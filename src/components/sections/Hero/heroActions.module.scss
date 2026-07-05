@@ -1,0 +1,36 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+}
+
+.contact {
+  position: relative;
+  font-weight: $fw-semibold;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $dur-base $ease-emphasized;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+@include bp(350px) {
+  .actions a {
+    font-size: $fs-sm;
+  }
+}

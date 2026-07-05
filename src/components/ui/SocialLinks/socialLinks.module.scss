@@ -1,0 +1,44 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+.social {
+  display: flex;
+  align-items: center;
+
+  &_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: $space-2;
+    width: 30px;
+    height: 30px;
+    background-color: $color-white;
+    transition: background 250ms linear;
+
+    svg {
+      fill: var(--accent);
+      pointer-events: none;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background: var(--accentred);
+
+      svg {
+        fill: $color-white;
+      }
+    }
+  }
+}
+
+@include bp(sm) {
+  .social_link {
+    margin-right: $space-3;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+}

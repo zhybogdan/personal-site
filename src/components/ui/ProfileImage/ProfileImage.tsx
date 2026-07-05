@@ -1,23 +1,23 @@
 "use client";
 
-import type { MouseEvent } from "react";
+import Image from "next/image";
 
-import { animateIt } from "@/lib/animate";
+import { useMagnetic } from "@/lib/useMagnetic";
 import styles from "./profileimage.module.scss";
 
-export default function ProfileImage() {
-  const handleMouseMove = (e: MouseEvent<HTMLImageElement>) => {
-    animateIt(e);
-  };
+export default function ProfileImage({ alt = "" }: { alt?: string }) {
+  const magneticRef = useMagnetic<HTMLImageElement>();
 
   return (
     <div className={styles.mainimage}>
-      <img
+      <Image
+        ref={magneticRef}
         className={`${styles.mainimage_img} ${styles.mainimage_front}`}
         src="/assets/mainimage-1.png"
-        alt="Фотография. Я собственной персоной"
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseMove}
+        alt={alt}
+        fill
+        priority
+        sizes="(max-width: 1200px) 100vw, 520px"
       />
     </div>
   );
