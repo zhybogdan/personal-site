@@ -26,7 +26,10 @@ export default function Nav({ isOpen, setIsOpen }: NavProps) {
   }, [isOpen, blockScroll, allowScroll]);
 
   return (
-    <div className={cn(styles.navigation, isOpen && styles["is-open-nav"])}>
+    <div
+      id="primary-nav"
+      className={cn(styles.navigation, isOpen && styles["is-open-nav"])}
+    >
       <nav className={styles.navigation_nav}>
         <ul className={styles.navigation_menu}>
           {siteConfig.nav.map((item) => (

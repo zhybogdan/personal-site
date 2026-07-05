@@ -14,8 +14,17 @@ export default function Hero() {
   const t = useTranslations("hero");
 
   useEffect(() => {
+    const strings = t.raw("typed") as string[];
+
+    // Respect reduced-motion: skip the typing loop, show the first term statically.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const el = document.getElementById("js-typed-init");
+      if (el) el.textContent = strings[0] ?? "";
+      return;
+    }
+
     const typed = new Typed("#js-typed-init", {
-      strings: t.raw("typed") as string[],
+      strings,
       loop: true,
       typeSpeed: 80,
       backSpeed: 50,

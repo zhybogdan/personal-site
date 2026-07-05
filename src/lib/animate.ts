@@ -1,6 +1,13 @@
 import type { MouseEvent } from "react";
 
 export function animateIt(e: MouseEvent<HTMLElement>) {
+  if (
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    return;
+  }
+
   const { offsetX: x, offsetY: y } = e.nativeEvent;
   const target = e.target as HTMLElement;
   const { offsetWidth: width, offsetHeight: height } = target;

@@ -18,9 +18,15 @@ export default function Sidebar({ handleNavigation, isOpen }: SidebarProps) {
   return (
     <div className={styles.sidebar}>
       <div className={styles.sidebar_wrapp}>
-        <Logo />
+        <Logo label={t("home")} />
 
-        <button className={styles.menuBtn} onClick={handleNavigation}>
+        <button
+          type="button"
+          className={styles.menuBtn}
+          onClick={handleNavigation}
+          aria-expanded={isOpen}
+          aria-controls="primary-nav"
+        >
           {isOpen ? t("menuClose") : t("menuOpen")}
         </button>
 

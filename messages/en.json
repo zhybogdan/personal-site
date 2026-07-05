@@ -1,23 +1,23 @@
 {
   "meta": {
     "home": {
-      "title": "Bohdan | Turnkey website development",
-      "description": "Development of reactive turnkey websites",
+      "title": "Bohdan — Software Engineer · Mobile & Web",
+      "description": "Software engineer building mobile & web apps with Flutter, React and Next.js — from idea to launch.",
       "keywords": [
-        "selling website creation",
-        "website from scratch",
-        "website development and promotion",
+        "software engineer",
+        "Flutter developer",
+        "mobile app developer",
+        "Dart",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "cross-platform apps",
         "web development",
-        "wordpress",
-        "turnkey website development",
-        "website cost",
-        "order a website",
-        "order a landing page",
-        "landing page development"
+        "frontend developer"
       ]
     },
     "portfolio": {
-      "title": "Portfolio | Bohdan — turnkey website development",
+      "title": "Portfolio — Bohdan · Software Engineer",
       "description": "Commercial projects: landing pages, corporate sites, business cards."
     }
   },
@@ -44,13 +44,14 @@
     "portfolio": "Portfolio"
   },
   "sidebar": {
+    "home": "Go to home",
     "emailLabel": "Email",
     "findMe": "Find me",
     "menuOpen": "Menu",
     "menuClose": "Close"
   },
   "footer": {
-    "slogan": "Turnkey <b>website</b> development",
+    "slogan": "<b>Mobile</b> & web engineering",
     "rights": "All rights reserved | {year}"
   },
   "portfolio": {
