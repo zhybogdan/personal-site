@@ -2,10 +2,10 @@
 
 import { useTranslations } from "next-intl";
 
-import { Link } from "@/i18n/navigation";
-import { siteConfig } from "@/config/site";
+import Logo from "@/components/ui/Logo/Logo";
+import ContactEmail from "@/components/ui/ContactEmail/ContactEmail";
 import SocialLinks from "@/components/ui/SocialLinks/SocialLinks";
-import { cn } from "@/lib/cn";
+import styles from "./sidebar.module.scss";
 
 type SidebarProps = {
   handleNavigation: () => void;
@@ -16,31 +16,19 @@ export default function Sidebar({ handleNavigation, isOpen }: SidebarProps) {
   const t = useTranslations("sidebar");
 
   return (
-    <div className="sidebar">
-      <div className="sidebar_wrapp">
-        <Link href="/" className="logo hover-cursor">
-          <span className="logo_el"></span>
-          <span className="logo_el"></span>
-          <span className="logo_el"></span>
-        </Link>
+    <div className={styles.sidebar}>
+      <div className={styles.sidebar_wrapp}>
+        <Logo />
 
-        <button
-          className={cn("navigation_btn", isOpen && "is-active")}
-          onClick={handleNavigation}
-        >
+        <button className={styles.menuBtn} onClick={handleNavigation}>
           {isOpen ? t("menuClose") : t("menuOpen")}
         </button>
 
-        <div className="sidebar_bottom">
-          <div className="sidebar_contact">
-            <div className="sidebar_somelink">
-              <h4>{t("emailLabel")}</h4>
-              <a className="hover-cursor" href={`mailto:${siteConfig.email}`}>
-                {siteConfig.email}
-              </a>
-            </div>
+        <div className={styles.sidebar_bottom}>
+          <div>
+            <ContactEmail label={t("emailLabel")} />
           </div>
-          <div className="sidebar_social">
+          <div className={styles.sidebar_social}>
             <h4>{t("findMe")}</h4>
             <SocialLinks />
           </div>

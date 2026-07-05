@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import type { MouseEvent } from "react";
 import Typed from "typed.js";
 import { useTranslations } from "next-intl";
 
-import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/config/site";
 import ProfileImage from "@/components/ui/ProfileImage/ProfileImage";
-import { animateIt } from "@/lib/animate";
+import Button from "@/components/ui/Button/Button";
+import Tag from "@/components/ui/Tag/Tag";
 import { cn } from "@/lib/cn";
 import styles from "./hero.module.scss";
 
@@ -29,10 +28,6 @@ export default function Hero() {
     };
   }, [t]);
 
-  const handleMouseMove = (e: MouseEvent<HTMLAnchorElement>) => {
-    animateIt(e);
-  };
-
   return (
     <div className={styles.home}>
       <div className={styles.home_wrapp}>
@@ -43,9 +38,7 @@ export default function Hero() {
 
           <ul className={styles.maininfo_stack}>
             {siteConfig.stack.map((tech) => (
-              <li key={tech} className={styles.maininfo_tag}>
-                {tech}
-              </li>
+              <Tag key={tech}>{tech}</Tag>
             ))}
           </ul>
 
@@ -62,14 +55,9 @@ export default function Hero() {
           </div>
 
           <div className={styles.maininfo_buttons}>
-            <Link
-              className={cn(styles.maininfo_btn, "m-button", "hover-cursor")}
-              href="/portfolio"
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseMove}
-            >
+            <Button href="/portfolio" magnetic>
               {t("cta")}
-            </Link>
+            </Button>
             <a
               className={cn(styles.maininfo_contact, "hover-cursor")}
               href={`mailto:${siteConfig.email}`}
