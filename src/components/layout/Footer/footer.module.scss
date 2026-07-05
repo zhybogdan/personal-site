@@ -1,0 +1,83 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+.footer {
+  position: absolute;
+  padding: $space-5;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+
+  &_wrapp {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.footer_slog,
+.footer_copy {
+  margin: 0;
+  font-size: $fs-xs;
+}
+
+.footer_slog {
+  display: none;
+  span {
+    color: var(--accentred);
+  }
+}
+
+.footer_copy {
+  margin-left: 25px;
+}
+
+@include bp(sm) {
+  .footer {
+    position: relative;
+    padding: $space-5 $space-4;
+  }
+
+  .footer_wrapp {
+    justify-content: space-between;
+  }
+
+  .footer_slog {
+    display: block;
+  }
+}
+
+@include bp(425px) {
+  .footer {
+    padding: 18px $space-4;
+  }
+}
+
+@include bp(414px) {
+  .footer {
+    padding: $space-4 $space-4;
+  }
+
+  .footer_slog,
+  .footer_copy {
+    margin: 0;
+    font-size: 13px;
+  }
+}
+
+@include bp(375px) {
+  .footer_slog,
+  .footer_copy {
+    font-size: 12px;
+  }
+}
+
+@include bp(350px) {
+  .footer {
+    padding: $space-4 $space-4;
+  }
+
+  .footer_slog,
+  .footer_copy {
+    font-size: 11px;
+  }
+}

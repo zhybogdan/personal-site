@@ -8,6 +8,7 @@ import { siteConfig } from "@/config/site";
 import SocialLinks from "@/components/ui/SocialLinks/SocialLinks";
 import useScrollBlock from "@/lib/useScrollBlock";
 import { cn } from "@/lib/cn";
+import styles from "./nav.module.scss";
 
 type NavProps = {
   isOpen: boolean;
@@ -25,16 +26,17 @@ export default function Nav({ isOpen, setIsOpen }: NavProps) {
   }, [isOpen, blockScroll, allowScroll]);
 
   return (
-    <div className={cn("navigation", isOpen && "is-open-nav")}>
-      <nav className="navigation_nav">
-        <ul className="navigation_menu">
+    <div className={cn(styles.navigation, isOpen && styles["is-open-nav"])}>
+      <nav className={styles.navigation_nav}>
+        <ul className={styles.navigation_menu}>
           {siteConfig.nav.map((item) => (
-            <li className="navigation_menu_item" key={item.href}>
+            <li className={styles.navigation_menu_item} key={item.href}>
               <Link
                 href={item.href}
                 className={cn(
-                  "navigation_menu_link hover-cursor",
-                  pathname === item.href && "active",
+                  styles.navigation_menu_link,
+                  "hover-cursor",
+                  pathname === item.href && styles.active,
                 )}
                 onClick={() => setIsOpen(false)}
               >
@@ -44,7 +46,7 @@ export default function Nav({ isOpen, setIsOpen }: NavProps) {
           ))}
         </ul>
       </nav>
-      <div className="navigation_dopinfo">
+      <div className={styles.navigation_dopinfo}>
         <SocialLinks />
       </div>
     </div>

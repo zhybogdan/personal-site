@@ -1,0 +1,17 @@
+@use "tokens" as *;
+
+.tag {
+  padding: 4px $space-2;
+  border: 1px solid var(--color-border);
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  color: var(--color-muted);
+  transition:
+    color $dur-fast $ease-standard,
+    border-color $dur-fast $ease-standard;
+
+  &:hover {
+    color: var(--color-fg);
+    border-color: var(--color-accent);
+  }
+}
