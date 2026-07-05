@@ -20,7 +20,7 @@ export const siteConfig = {
   ] as NavItem[],
 
   socials: [
-    { name: "telegram", href: "https://t.me/molochnyk", icon: "telegram" },
+    { name: "telegram", href: "https://t.me/zhy_bogdan", icon: "telegram" },
     {
       name: "linkedin",
       href: "https://www.linkedin.com/in/bogdanzhylko/",
