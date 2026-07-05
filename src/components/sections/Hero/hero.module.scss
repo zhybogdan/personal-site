@@ -40,7 +40,7 @@
 
   &_name {
     margin: 0;
-    font-size: $fs-4xl;
+    font-size: $fs-hero; // fluid 44 → 70
     font-weight: $fw-black;
     line-height: $lh-tight;
     letter-spacing: -0.02em;
@@ -48,7 +48,7 @@
 
   &_type {
     margin: $space-2 0 0;
-    font-size: $fs-md;
+    font-size: clamp(0.875rem, 2.6vw, 1.125rem); // fluid 14 → 18
     font-weight: $fw-semibold;
     letter-spacing: 0.3px;
     color: var(--color-accent);
@@ -59,6 +59,7 @@
   }
 
   &_text {
+    max-width: $measure; // keep a comfortable reading line length
     font-size: $fs-base;
     line-height: $lh-relaxed;
     margin: $space-1 0;
@@ -69,9 +70,9 @@
   }
 }
 
-/////////////////////////
-// --- MEDIA QUERY --- //
-/////////////////////////
+/////////////////////////////////////////////
+// --- MEDIA QUERY (layout only; type is fluid) --- //
+/////////////////////////////////////////////
 
 @include bp(xl) {
   .maininfo {
@@ -84,14 +85,6 @@
   .maininfo {
     margin-left: $space-6;
     flex-basis: 60%;
-  }
-
-  .maininfo_name {
-    font-size: 64px;
-  }
-
-  .maininfo_text {
-    font-size: $fs-sm;
   }
 }
 
@@ -112,80 +105,14 @@
   }
 }
 
-@include bp(890px) {
-  .maininfo_name {
-    font-size: $fs-3xl;
-  }
-}
-
 @include bp(sm) {
   .home {
     height: auto;
   }
-
-  .maininfo_name {
-    font-size: 68px;
-  }
-
-  .maininfo_type {
-    font-size: $fs-lg;
-  }
-
-  .maininfo_text {
-    font-size: 20px;
-  }
 }
 
 @include bp(xxs) {
-  .maininfo_name {
-    font-size: $fs-3xl;
-  }
-
   .maininfo_text {
     margin: $space-2 0;
-  }
-}
-
-@include bp(425px) {
-  .maininfo_text {
-    font-size: $fs-md;
-  }
-}
-
-@include bp(414px) {
-  .maininfo_name {
-    font-size: 38px;
-  }
-
-  .maininfo_type {
-    font-size: $fs-md;
-  }
-
-  .maininfo_text {
-    font-size: $fs-sm;
-  }
-}
-
-@include bp(375px) {
-  .maininfo_name {
-    font-size: 43px;
-  }
-
-  .maininfo_type {
-    font-size: $fs-sm;
-  }
-
-  .maininfo_text {
-    font-size: 15px;
-  }
-}
-
-@include bp(350px) {
-  .maininfo_name {
-    font-size: 39px;
-  }
-
-  .maininfo_type {
-    font-size: $fs-xs;
   }
 }

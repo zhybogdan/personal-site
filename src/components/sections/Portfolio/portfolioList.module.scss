@@ -1,3 +1,4 @@
+@use "tokens" as *;
 @use "mixins" as *;
 
 // --- List wrapper --- //
@@ -7,8 +8,8 @@
 
 .porfolio_title {
   margin: 0 0 60px;
-  font-size: 40px;
-  line-height: 40px;
+  font-size: $fs-title; // fluid 24 → 40
+  line-height: 1.1;
 }
 
 .porfolio_items {
@@ -23,10 +24,6 @@
 }
 
 @include bp(lg) {
-  .porfolio_title {
-    font-size: 38px;
-  }
-
   .porfolio_items {
     padding: 0 0 0 20px;
   }
@@ -41,10 +38,6 @@
 @include bp(md) {
   .porfolio_items {
     padding: 0;
-  }
-
-  .porfolio_title {
-    font-size: 36px;
   }
 }
 
@@ -63,7 +56,6 @@
 @include bp(425px) {
   .porfolio_title {
     margin: 0 0 40px;
-    font-size: 26px;
   }
 }
 
@@ -78,10 +70,6 @@
 }
 
 @include bp(350px) {
-  .porfolio_title {
-    font-size: 24px;
-  }
-
   .porfolio_list {
     padding-left: 10px;
   }

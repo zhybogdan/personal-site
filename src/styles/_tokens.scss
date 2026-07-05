@@ -31,18 +31,29 @@ $space-8: 60px;
 $space-10: 100px;
 
 // --- Typography --- //
+// Scale is in rem (root = 16px) so it honours the user's browser font size.
+// `base` is the single body size — the old 16/17/18 trio collapsed here.
 $font-fallback: "Source Sans Pro", sans-serif;
 
-$fs-xs: 14px;
-$fs-sm: 16px;
-$fs-base: 17px;
-$fs-md: 18px;
-$fs-lg: 22px;
-$fs-xl: 24px;
-$fs-2xl: 40px;
-$fs-3xl: 50px;
-$fs-4xl: 70px;
-$fs-5xl: 75px;
+$fs-xs: 0.75rem; // 12
+$fs-sm: 0.875rem; // 14
+$fs-base: 1rem; // 16  ← body
+$fs-md: 1.125rem; // 18
+$fs-lg: 1.375rem; // 22
+$fs-xl: 1.5rem; // 24
+$fs-2xl: 2rem; // 32
+$fs-3xl: 2.5rem; // 40
+$fs-4xl: 3.125rem; // 50
+$fs-5xl: 4.375rem; // 70
+
+// Fluid display sizes — one clamp() replaces a stack of breakpoint overrides.
+// clamp(min, preferred, max): shrinks smoothly on small screens.
+$fs-hero: clamp(2.75rem, 6vw, 4.375rem); // 44 → 70  (hero name)
+$fs-display: clamp(1.75rem, 6vw, 4.6875rem); // 28 → 75  (work card title)
+$fs-title: clamp(1.5rem, 3.2vw, 2.5rem); // 24 → 40  (section titles)
+
+// Ideal reading measure for body copy.
+$measure: 60ch;
 
 $fw-light: 300;
 $fw-regular: 400;
