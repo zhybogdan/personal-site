@@ -7,14 +7,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 8.125rem; // 130
+  min-width: 8.125rem; // 130 — floor for short labels; grows to fit longer ones
   max-width: 100%;
   min-height: 3.125rem; // 50
-  padding: 0 $space-2;
+  padding: 0 $space-4;
 
   font-size: $fs-md;
   text-transform: uppercase;
   letter-spacing: 1px;
+  white-space: nowrap; // keep the label on a single line
   background: var(--accent);
   color: $color-white;
   text-decoration: none;
@@ -42,7 +43,7 @@
 
 @include bp(425px) {
   .button {
-    width: 7rem; // 112
+    min-width: 7rem; // 112
     min-height: 2.8125rem; // 45
     font-size: $fs-sm;
   }

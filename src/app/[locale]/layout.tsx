@@ -38,7 +38,7 @@ export async function generateMetadata({
     title: t("title"),
     description: t("description"),
     keywords: t.raw("keywords") as string[],
-    authors: [{ name: "bogdan.starcoding.top" }],
+    authors: [{ name: siteConfig.author }],
     alternates: localizedAlternates(locale),
     manifest: "/manifest.json",
     icons: {
@@ -53,7 +53,7 @@ export async function generateMetadata({
       url: `${siteConfig.url}/${locale}`,
       title: t("title"),
       description: t("description"),
-      siteName: t("title"),
+      siteName: siteConfig.author,
       locale: locale === "uk" ? "uk_UA" : "en_US",
       images: [siteConfig.ogImage],
     },
