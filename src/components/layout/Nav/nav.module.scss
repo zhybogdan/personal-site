@@ -91,7 +91,19 @@
     flex-direction: column;
     z-index: $z-nav;
     background: $color-white;
-    transition: transform 500ms $ease-nav;
+    // Hidden off-screen menu is also removed from the tab order / a11y tree;
+    // visibility flips back after the slide-out so it doesn't clip the exit.
+    visibility: hidden;
+    transition:
+      transform 500ms $ease-nav,
+      visibility 0s linear 500ms;
+  }
+
+  .is-open-nav {
+    visibility: visible;
+    transition:
+      transform 500ms $ease-nav,
+      visibility 0s;
   }
 
   .navigation_nav {

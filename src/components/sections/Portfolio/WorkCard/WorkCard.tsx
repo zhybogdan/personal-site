@@ -1,10 +1,11 @@
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import type { Work } from "@content";
 import styles from "./workCard.module.scss";
 
 export default function WorkCard({ data }: { data: Work }) {
   const locale = useLocale() as "en" | "uk";
+  const t = useTranslations("a11y");
 
   const title = data.title[locale];
   const firstWord = data.firstWord[locale];
@@ -30,6 +31,7 @@ export default function WorkCard({ data }: { data: Work }) {
           {" | "}
           <span>{typesofwork}</span>
         </div>
+        <span className="sr-only"> ({t("opensInNewTab")})</span>
       </a>
       <div
         className={styles.portpreview}

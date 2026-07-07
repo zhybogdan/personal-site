@@ -40,6 +40,12 @@
       "MVPs"
     ]
   },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "switchToEn": "Switch to English",
+    "switchToUk": "Switch to Ukrainian",
+    "opensInNewTab": "opens in a new tab"
+  },
   "nav": {
     "home": "Home",
     "portfolio": "Portfolio"

@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
@@ -14,9 +14,16 @@ const labels: Record<string, string> = {
   uk: "UA",
 };
 
+// Accessible-name keys per locale (the visible "EN"/"UA" gives no context).
+const switchKeys: Record<string, string> = {
+  en: "switchToEn",
+  uk: "switchToUk",
+};
+
 export default function LangSwitcher() {
   const pathname = usePathname();
   const active = useLocale();
+  const t = useTranslations("a11y");
 
   return (
     <div className={styles.lang}>
@@ -43,6 +50,7 @@ export default function LangSwitcher() {
               className={cn(styles.lang_link, "hover-cursor")}
               lang={locale}
               title={labels[locale] ?? locale.toUpperCase()}
+              aria-label={t(switchKeys[locale] ?? "switchToEn")}
             >
               {labels[locale] ?? locale.toUpperCase()}
             </Link>

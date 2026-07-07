@@ -7,6 +7,25 @@
   margin: 0 auto;
 }
 
+// Keyboard-only "skip to content" link: off-screen until focused, then it
+// slides into the top-left corner. Mouse/touch users never see it.
+.skipLink {
+  position: absolute;
+  top: $space-1;
+  left: $space-1;
+  z-index: $z-cursor;
+  padding: $space-2 $space-4;
+  background: var(--color-surface-invert);
+  color: var(--color-on-invert);
+  border-radius: $radius-sm;
+  transform: translateY(-150%);
+  transition: transform $dur-fast $ease-standard;
+
+  &:focus {
+    transform: translateY(0);
+  }
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 25rem 1fr 12.5rem; // 400 / 200

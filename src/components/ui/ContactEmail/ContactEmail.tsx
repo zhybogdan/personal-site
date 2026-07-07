@@ -18,7 +18,7 @@ export default function ContactEmail({
 
   return (
     <div className={styles.somelink}>
-      <h4>{label}</h4>
+      <h2>{label}</h2>
       <span className={styles.linkWrap}>
         <a
           className="hover-cursor"

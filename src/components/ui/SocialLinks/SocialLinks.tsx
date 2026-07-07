@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { FaTelegramPlane, FaLinkedinIn } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/cn";
@@ -11,6 +12,8 @@ const icons: Record<string, ReactNode> = {
 };
 
 export default function SocialLinks() {
+  const t = useTranslations("a11y");
+
   return (
     <div className={styles.social}>
       {siteConfig.socials.map((item) => (
@@ -20,6 +23,7 @@ export default function SocialLinks() {
           target="_blank"
           rel="noopener noreferrer"
           title={item.name}
+          aria-label={`${item.name}, ${t("opensInNewTab")}`}
           key={item.name}
         >
           {icons[item.icon]}
