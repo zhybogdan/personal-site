@@ -9,7 +9,7 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 400px 1fr 200px;
+  grid-template-columns: 25rem 1fr 12.5rem; // 400 / 200
   grid-template-rows: 1fr;
   grid-template-areas: ". . .";
   min-height: 100vh;
@@ -17,25 +17,25 @@
 
 @include bp(xxl) {
   .wrapper {
-    grid-template-columns: 300px 1fr 200px;
+    grid-template-columns: 18.75rem 1fr 12.5rem; // 300 / 200
   }
 }
 
 @include bp(xl) {
   .wrapper {
-    grid-template-columns: 275px 1fr 175px;
+    grid-template-columns: 17.1875rem 1fr 10.9375rem; // 275 / 175
   }
 }
 
 @include bp(lg) {
   .wrapper {
-    grid-template-columns: 275px 1fr 160px;
+    grid-template-columns: 17.1875rem 1fr 10rem; // 275 / 160
   }
 }
 
 @include bp(ml) {
   .wrapper {
-    grid-template-columns: 255px 1fr 160px;
+    grid-template-columns: 15.9375rem 1fr 10rem; // 255 / 160
   }
 
   .main {
@@ -45,7 +45,7 @@
 
 @include bp(890px) {
   .wrapper {
-    grid-template-columns: 255px 1fr 140px;
+    grid-template-columns: 15.9375rem 1fr 8.75rem; // 255 / 140
   }
 
   .main {
