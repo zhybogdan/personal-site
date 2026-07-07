@@ -1,7 +1,7 @@
 {
   "meta": {
     "home": {
-      "title": "Богдан — Software Engineer · Mobile & Web",
+      "title": "Інженер Mobile & Web — Flutter, React, Next.js",
       "description": "Інженер-програміст: мобільні та веб-застосунки на Flutter, React і Next.js — від ідеї до релізу.",
       "keywords": [
         "software engineer",
@@ -17,7 +17,7 @@
       ]
     },
     "portfolio": {
-      "title": "Портфоліо — Богдан · Software Engineer",
+      "title": "Портфоліо · Mobile & Web",
       "description": "Комерційні проєкти: лендинги, корпоративні сайти, візитки."
     }
   },
@@ -28,7 +28,7 @@
     "introBuild": "Створюю <typed></typed> — від ідеї до релізу.",
     "introExperience": "Інженер-програміст із досвідом понад 3 роки в мобільній та веб-розробці.",
     "introApproach": "Ціную чисту архітектуру, зручний UX і продукти, які працюють довго.",
-    "cta": "Портфоліо",
+    "cta": "Роботи",
     "ctaContact": "Написати",
     "emailCopied": "Пошту скопійовано ✓",
     "photoAlt": "Моє фото",

@@ -11,6 +11,9 @@ export const siteConfig = {
   email: "zhylkobogdan@gmail.com",
   ogImage: "/image-preview.png",
 
+  // Brand / person name — used for OG siteName and metadata authors.
+  author: "Bohdan Zhylko",
+
   // Featured tech (language-neutral proper nouns).
   stack: ["Flutter", "Dart", "React", "Next.js", "TypeScript"],
 

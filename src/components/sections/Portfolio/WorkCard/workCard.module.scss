@@ -55,6 +55,32 @@
   }
 }
 
+// Tech chips: mirror the home-page stack tags (sharp, muted, bordered) but a
+// touch smaller. Sit under the title, wrap on narrow cards.
+.portfolitm_techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-1;
+  max-width: 34rem;
+  margin: $space-2 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tech {
+  padding: 2px $space-2;
+  border: 1px solid var(--color-border);
+  font-size: $fs-xs; // 12
+  letter-spacing: 0.3px;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.techMore {
+  color: var(--color-fg);
+  border-color: var(--color-accent);
+}
+
 .portpreview {
   position: fixed;
   top: 15%;
