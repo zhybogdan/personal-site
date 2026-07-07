@@ -42,7 +42,7 @@ export default function Sidebar({ handleNavigation, isOpen }: SidebarProps) {
             <LangSwitcher />
           </div>
           <div className={styles.sidebar_social}>
-            <h4>{t("findMe")}</h4>
+            <h2>{t("findMe")}</h2>
             <SocialLinks />
           </div>
         </div>

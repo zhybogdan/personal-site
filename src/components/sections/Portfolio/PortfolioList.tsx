@@ -17,7 +17,7 @@ export default function PortfolioList() {
   return (
     <div className={styles.porfolio} ref={rootRef}>
       <div>
-        <h2 className={styles.porfolio_title}>{t("title")}</h2>
+        <h1 className={styles.porfolio_title}>{t("title")}</h1>
         <div className={styles.porfolio_items}>
           <div className={styles.porfolio_list}>
             {items.map((item) => (

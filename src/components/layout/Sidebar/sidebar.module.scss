@@ -23,7 +23,7 @@
 }
 
 .sidebar_social {
-  h4 {
+  h2 {
     font-size: $fs-lg;
     margin: 0 0 $space-1;
   }
@@ -46,8 +46,9 @@
   display: none;
   cursor: pointer;
 
-  &:focus {
-    outline: none;
+  &:focus-visible {
+    outline: 2px solid $color-white;
+    outline-offset: 2px;
   }
 }
 
