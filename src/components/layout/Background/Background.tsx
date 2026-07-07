@@ -44,6 +44,9 @@ export default function Background() {
     // Cursor position in CSS px; null when off-canvas / unknown.
     let mx: number | null = null;
     let my: number | null = null;
+    // Set on pointer input; keeps the loop alive for one more frame so the
+    // spotlight can follow before we idle-stop.
+    let moved = false;
 
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
@@ -109,14 +112,33 @@ export default function Background() {
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      if (!interactive) draw(); // one static paint; no rAF below
+      // Resizing clears the canvas — repaint now, then let the loop (if any)
+      // resume any in-flight easing.
+      draw();
+      if (interactive) start();
     };
 
     let raf = 0;
     const tick = () => {
       ox += (tx - ox) * 0.08;
       oy += (ty - oy) * 0.08;
+
+      // Snap the last sub-pixel so easing terminates instead of creeping.
+      const settled = Math.abs(tx - ox) < 0.1 && Math.abs(ty - oy) < 0.1;
+      if (settled) {
+        ox = tx;
+        oy = ty;
+      }
+
       draw();
+
+      // Idle: nothing left to ease and no fresh pointer input — park the loop
+      // until the next interaction wakes it, instead of repainting forever.
+      if (settled && !moved) {
+        raf = 0;
+        return;
+      }
+      moved = false;
       raf = requestAnimationFrame(tick);
     };
 
@@ -133,12 +155,15 @@ export default function Background() {
       my = e.clientY;
       tx = (0.5 - e.clientX / width) * PARALLAX;
       ty = (0.5 - e.clientY / height) * PARALLAX;
+      moved = true;
+      start(); // wake the loop if it was parked
     };
     const onLeave = () => {
       mx = null;
       my = null;
       tx = 0;
       ty = 0;
+      start(); // ease the grid back to rest, then it parks itself
     };
     const onVisibility = () => {
       if (document.hidden) stop();
