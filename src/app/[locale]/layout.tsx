@@ -11,6 +11,7 @@ import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
 import { localizedAlternates } from "@/lib/seo";
 import Cursor from "@/components/layout/Cursor/Cursor";
+import Background from "@/components/layout/Background/Background";
 import AppShell from "@/components/layout/AppShell/AppShell";
 
 const sourceSans = Source_Sans_3({
@@ -93,6 +94,7 @@ export default async function LocaleLayout({
           }}
         />
         <NextIntlClientProvider>
+          <Background />
           <Cursor />
           <AppShell>{children}</AppShell>
         </NextIntlClientProvider>
