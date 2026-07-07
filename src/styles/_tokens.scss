@@ -20,15 +20,16 @@ $breakpoints: (
   "xxs": 480px,
 );
 
-// --- Spacing scale --- //
-$space-1: 5px;
-$space-2: 10px;
-$space-3: 15px;
-$space-4: 20px;
-$space-5: 30px;
-$space-6: 40px;
-$space-8: 60px;
-$space-10: 100px;
+// --- Spacing scale (rem, so it scales with the root font size) --- //
+$space-1: 0.3125rem; // 5
+$space-2: 0.625rem; // 10
+$space-3: 0.9375rem; // 15
+$space-4: 1.25rem; // 20
+$space-25: 1.5625rem; // 25
+$space-5: 1.875rem; // 30
+$space-6: 2.5rem; // 40
+$space-8: 3.75rem; // 60
+$space-10: 6.25rem; // 100
 
 // --- Typography --- //
 // Scale is in rem (root = 16px) so it honours the user's browser font size.
@@ -90,4 +91,4 @@ $z-nav-btn: 12;
 $z-cursor: 1000;
 
 // --- Layout --- //
-$container-max: 1920px;
+$container-max: 120rem; // 1920 at 16px root; scales up on large screens

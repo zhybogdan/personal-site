@@ -3,29 +3,29 @@
 
 // --- List wrapper --- //
 .porfolio {
-  padding: 30px;
+  padding: $space-5; // 30
 }
 
 .porfolio_title {
-  margin: 0 0 60px;
+  margin: 0 0 $space-8; // 60
   font-size: $fs-title; // fluid 24 → 40
   line-height: 1.1;
 }
 
 .porfolio_items {
-  margin: 0 0 100px;
-  padding: 0 0 0 60px;
+  margin: 0 0 $space-10; // 100
+  padding: 0 0 0 $space-8; // 60
 }
 
 @include bp(xl) {
   .porfolio_items {
-    padding: 0 0 0 50px;
+    padding: 0 0 0 3.125rem; // 50
   }
 }
 
 @include bp(lg) {
   .porfolio_items {
-    padding: 0 0 0 20px;
+    padding: 0 0 0 $space-4; // 20
   }
 }
 
@@ -43,34 +43,34 @@
 
 @include bp(sm) {
   .porfolio_items {
-    margin: 0 0 20px;
+    margin: 0 0 $space-4; // 20
   }
 }
 
 @include bp(xs) {
   .porfolio_list {
-    padding-left: 20px;
+    padding-left: $space-4; // 20
   }
 }
 
 @include bp(425px) {
   .porfolio_title {
-    margin: 0 0 40px;
+    margin: 0 0 $space-6; // 40
   }
 }
 
 @include bp(375px) {
   .porfolio_title {
-    margin: 0 0 30px;
+    margin: 0 0 $space-5; // 30
   }
 
   .porfolio_list {
-    padding-left: 15px;
+    padding-left: $space-3; // 15
   }
 }
 
 @include bp(350px) {
   .porfolio_list {
-    padding-left: 10px;
+    padding-left: $space-2; // 10
   }
 }

@@ -7,9 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 130px;
+  width: 8.125rem; // 130
   max-width: 100%;
-  min-height: 50px;
+  min-height: 3.125rem; // 50
   padding: 0 $space-2;
 
   font-size: $fs-md;
@@ -42,8 +42,8 @@
 
 @include bp(425px) {
   .button {
-    width: 112px;
-    min-height: 45px;
+    width: 7rem; // 112
+    min-height: 2.8125rem; // 45
     font-size: $fs-sm;
   }
 }

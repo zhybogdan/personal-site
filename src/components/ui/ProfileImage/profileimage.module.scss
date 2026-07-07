@@ -1,8 +1,9 @@
+@use "tokens" as *;
 @use "mixins" as *;
 
 .mainimage {
   position: relative;
-  width: 520px;
+  width: 32.5rem; // 520
   height: 85vh;
   background: var(--accentred);
   box-shadow: 0 3px 36px -6px rgba(0, 0, 0, 0.75);
@@ -25,21 +26,21 @@
 
 @media (min-height: 1081px) {
   .mainimage {
-    height: 900px;
+    height: 56.25rem; // 900
   }
 }
 
 @include bp(ml) {
   .mainimage {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: $space-4;
   }
 }
 
 @include bp(sm) {
   .mainimage {
-    height: 470px;
-    margin-bottom: 40px;
+    height: 29.375rem; // 470
+    margin-bottom: $space-6;
     box-shadow: 0 2px 20px -6px rgba(0, 0, 0, 0.75);
   }
 
@@ -50,6 +51,6 @@
 
 @include bp(414px) {
   .mainimage {
-    height: 360px;
+    height: 22.5rem; // 360
   }
 }

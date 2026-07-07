@@ -8,8 +8,8 @@
   align-self: flex-start;
 
   &_el {
-    width: 4px;
-    height: 26px;
+    width: 0.25rem; // 4
+    height: 1.625rem; // 26
     background: $color-white;
     margin-right: $space-2;
 

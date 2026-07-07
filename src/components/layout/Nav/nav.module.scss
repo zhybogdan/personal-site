@@ -21,7 +21,7 @@
     &_item {
       position: relative;
       list-style-type: none;
-      margin-bottom: 25px;
+      margin-bottom: $space-25;
 
       &::before {
         content: "";
@@ -75,7 +75,7 @@
   }
 
   .navigation_menu_link {
-    font-size: 20px;
+    font-size: 1.25rem; // 20
   }
 }
 
