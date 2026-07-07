@@ -41,7 +41,11 @@ export async function generateMetadata({
     alternates: localizedAlternates(locale),
     manifest: "/manifest.json",
     icons: {
-      icon: [{ url: "/favicon.png", sizes: "16x16", type: "image/png" }],
+      icon: [
+        { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/favicon.png", sizes: "64x64", type: "image/png" },
+      ],
+      shortcut: "/favicon.png",
     },
     openGraph: {
       type: "website",

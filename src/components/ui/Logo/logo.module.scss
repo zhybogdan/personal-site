@@ -1,39 +1,46 @@
 @use "tokens" as *;
-@use "mixins" as *;
 
 .logo {
-  position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   align-self: flex-start;
-
-  &_el {
-    width: 0.25rem; // 4
-    height: 1.625rem; // 26
-    background: $color-white;
-    margin-right: $space-2;
-
-    transition: all $dur-base $ease-standard;
-
-    &:nth-child(2) {
-      transform: scaleY(1.4);
-      background: var(--accentred);
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &:hover {
-    .logo_el:nth-child(2) {
-      transform: scaleY(1);
-    }
-  }
+  line-height: 1;
 }
 
-@include bp(sm) {
-  .logo:hover .logo_el:nth-child(2) {
-    transform: scaleY(1.4);
+.mark {
+  font-family: var(--font-sans), $font-fallback;
+  font-weight: $fw-bold; // 700
+  font-size: 1.875rem; // 30
+  line-height: 1;
+  color: $color-white;
+  letter-spacing: -0.02em;
+
+  transform-origin: left center;
+  transition: transform $dur-base $ease-emphasized;
+}
+
+.dot {
+  display: inline-block;
+  color: var(--accentred);
+  transform-origin: center 80%;
+
+  // Subtle "alive" heartbeat. Neutralized for prefers-reduced-motion by the
+  // global rule in globals.scss.
+  animation: logo-dot-pulse 2.4s ease-in-out infinite;
+}
+
+.logo:hover .mark {
+  transform: scale(1.06);
+}
+
+@keyframes logo-dot-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.72;
   }
 }
