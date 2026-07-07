@@ -3,7 +3,7 @@
 
 .portfolitm {
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: clamp(2.25rem, 5vw, 6.25rem); // fluid 36 → 100
   width: max-content;
 
   &:last-child {
@@ -11,7 +11,7 @@
   }
 
   &_info {
-    font-size: 14px;
+    font-size: clamp(0.625rem, 1.5vw, 0.875rem); // fluid 10 → 14
     transition: all 450ms ease-in-out;
   }
 
@@ -40,7 +40,7 @@
 
   &:hover {
     .portpreview {
-      width: 600px;
+      width: 37.5rem; // 600
     }
 
     .portfolitm_info {
@@ -60,7 +60,7 @@
   top: 15%;
   left: 54%;
   width: 0;
-  height: 400px;
+  height: 25rem; // 400
 
   overflow: hidden;
 
@@ -76,31 +76,22 @@
 
 @include bp(xl) {
   .portfolitm:hover .portpreview {
-    width: 500px;
-  }
-
-  .portfolitm {
-    margin-bottom: 85px;
+    width: 31.25rem; // 500
   }
 
   .portpreview {
-    left: 54%;
-    height: 320px;
+    height: 20rem; // 320
   }
 }
 
 @include bp(lg) {
-  .portfolitm {
-    margin-bottom: 75px;
-  }
-
   .portpreview {
     top: 19%;
-    height: 290px;
+    height: 18.125rem; // 290
   }
 
   .portfolitm:hover .portpreview {
-    width: 480px;
+    width: 30rem; // 480
   }
 }
 
@@ -115,37 +106,7 @@
 }
 
 @include bp(xs) {
-  .portfolitm {
-    margin-bottom: 50px;
-
-    span {
-      &::before {
-        width: 100%;
-      }
-    }
-  }
-}
-
-@include bp(425px) {
-  .portfolitm {
-    margin-bottom: 36px;
-  }
-}
-
-@include bp(414px) {
-  .portfolitm_info {
-    font-size: 13px;
-  }
-}
-
-@include bp(375px) {
-  .portfolitm_info {
-    font-size: 12px;
-  }
-}
-
-@include bp(350px) {
-  .portfolitm_info {
-    font-size: 10px;
+  .portfolitm span::before {
+    width: 100%;
   }
 }
