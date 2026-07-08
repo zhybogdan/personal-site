@@ -10,8 +10,8 @@
     align-items: center;
     justify-content: center;
     margin-right: $space-2;
-    width: 30px;
-    height: 30px;
+    width: 1.875rem; // 30
+    height: 1.875rem;
     background-color: $color-white;
     transition: background 250ms linear;
 
@@ -36,9 +36,12 @@
 
 @include bp(sm) {
   .social_link {
+    // Left-align the glyph inside its box so the icons line up with the
+    // language switcher above them (instead of being inset by the centering).
+    justify-content: flex-start;
     margin-right: $space-3;
-    width: 35px;
-    height: 35px;
-    font-size: 20px;
+    width: 2.1875rem; // 35
+    height: 2.1875rem;
+    font-size: 1.25rem; // 20
   }
 }

@@ -6,13 +6,14 @@ firstWord:
   en: "Promi"
   uk: "Promi"
 type:
-  en: "landing page"
-  uk: "лендинг"
+  en: "Landing page"
+  uk: "Лендинг"
 typesofwork:
-  en: "development"
-  uk: "розробка"
+  en: "Development"
+  uk: "Розробка"
 technologies: "HTML, CSS, JavaScript"
+platform: "web"
 link: "https://prominence-develop.netlify.app/"
 image: "preview-portfolio-prominence.png"
-order: 2
+order: 5
 ---

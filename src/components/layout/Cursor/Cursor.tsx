@@ -56,5 +56,5 @@ export default function Cursor() {
     { scope: cursorRef },
   );
 
-  return <div className="app-cursor" ref={cursorRef}></div>;
+  return <div className="app-cursor" ref={cursorRef} aria-hidden="true"></div>;
 }

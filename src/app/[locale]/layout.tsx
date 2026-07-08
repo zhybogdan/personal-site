@@ -11,6 +11,7 @@ import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
 import { localizedAlternates } from "@/lib/seo";
 import Cursor from "@/components/layout/Cursor/Cursor";
+import Background from "@/components/layout/Background/Background";
 import AppShell from "@/components/layout/AppShell/AppShell";
 
 const sourceSans = Source_Sans_3({
@@ -37,18 +38,22 @@ export async function generateMetadata({
     title: t("title"),
     description: t("description"),
     keywords: t.raw("keywords") as string[],
-    authors: [{ name: "bogdan.starcoding.top" }],
+    authors: [{ name: siteConfig.author }],
     alternates: localizedAlternates(locale),
     manifest: "/manifest.json",
     icons: {
-      icon: [{ url: "/favicon.png", sizes: "16x16", type: "image/png" }],
+      icon: [
+        { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/favicon.png", sizes: "64x64", type: "image/png" },
+      ],
+      shortcut: "/favicon.png",
     },
     openGraph: {
       type: "website",
       url: `${siteConfig.url}/${locale}`,
       title: t("title"),
       description: t("description"),
-      siteName: t("title"),
+      siteName: siteConfig.author,
       locale: locale === "uk" ? "uk_UA" : "en_US",
       images: [siteConfig.ogImage],
     },
@@ -89,6 +94,7 @@ export default async function LocaleLayout({
           }}
         />
         <NextIntlClientProvider>
+          <Background />
           <Cursor />
           <AppShell>{children}</AppShell>
         </NextIntlClientProvider>

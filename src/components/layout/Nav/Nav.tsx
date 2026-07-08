@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { siteConfig } from "@/config/site";
 import SocialLinks from "@/components/ui/SocialLinks/SocialLinks";
+import LangSwitcher from "@/components/ui/LangSwitcher/LangSwitcher";
 import useScrollBlock from "@/lib/useScrollBlock";
 import { cn } from "@/lib/cn";
 import styles from "./nav.module.scss";
@@ -50,6 +51,9 @@ export default function Nav({ isOpen, setIsOpen }: NavProps) {
         </ul>
       </nav>
       <div className={styles.navigation_dopinfo}>
+        <div className={styles.navigation_lang}>
+          <LangSwitcher />
+        </div>
         <SocialLinks />
       </div>
     </div>

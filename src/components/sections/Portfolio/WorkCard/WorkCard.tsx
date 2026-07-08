@@ -1,15 +1,122 @@
-import { useLocale } from "next-intl";
+"use client";
+
+import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 
 import type { Work } from "@content";
 import styles from "./workCard.module.scss";
 
 export default function WorkCard({ data }: { data: Work }) {
   const locale = useLocale() as "en" | "uk";
+  const t = useTranslations("a11y");
+  const tp = useTranslations("portfolio");
+  const [expanded, setExpanded] = useState(false);
 
   const title = data.title[locale];
   const firstWord = data.firstWord[locale];
   const type = data.type[locale];
   const typesofwork = data.typesofwork[locale];
+  const role = data.role?.[locale];
+  const description = data.description?.[locale];
+  const responsibilities = data.responsibilities?.[locale];
+
+  // Comma-separated string → trimmed list. Show up to 5; if more, a "+N" chip
+  // hints at the rest without crowding the card.
+  const MAX_TECHS = 5;
+  const techs = data.technologies
+    .split(",")
+    .map((tech) => tech.trim())
+    .filter(Boolean);
+  const shownTechs = techs.slice(0, MAX_TECHS);
+  const extraTechs = techs.length - shownTechs.length;
+
+  const preview = (
+    <div
+      className={styles.portpreview}
+      style={{
+        backgroundImage: `url('/assets/portfolio/${data.image}')`,
+      }}
+    />
+  );
+
+  const platformLabel = tp(
+    data.platform === "mobile" ? "platformMobile" : "platformWeb",
+  );
+
+  const badges = (
+    <div className={styles.portfolitm_badges}>
+      <span className={styles.portfolitm_badge}>{platformLabel}</span>
+      {!data.link && (
+        <span className={styles.portfolitm_badge}>{tp("nda")}</span>
+      )}
+    </div>
+  );
+
+  const techList = shownTechs.length > 0 && (
+    <ul className={styles.portfolitm_techs}>
+      {shownTechs.map((tech) => (
+        <li className={styles.tech} key={tech}>
+          {tech}
+        </li>
+      ))}
+      {extraTechs > 0 && (
+        <li className={`${styles.tech} ${styles.techMore}`}>+{extraTechs}</li>
+      )}
+    </ul>
+  );
+
+  // No public link (confidential mobile work under NDA) → render a case
+  // card: title stays static, details expand in place instead of navigating.
+  if (!data.link) {
+    return (
+      <div className={styles.portfolitm} data-reveal>
+        <div className={styles.portfolitm_link}>
+          <span className={styles.portfolitm_link_title}>{title}</span>
+          <div className={styles.portfolitm_info}>
+            / <span>{type}</span>
+            {" — "}
+            <span>{typesofwork}</span>
+          </div>
+        </div>
+        {badges}
+        {techList}
+        <button
+          type="button"
+          className={styles.portfolitm_toggle}
+          aria-expanded={expanded}
+          onClick={() => setExpanded((v) => !v)}
+        >
+          {expanded ? tp("hideDetails") : tp("viewDetails")}
+        </button>
+        {expanded && (
+          <div className={styles.portfolitm_details}>
+            {role && (
+              <p>
+                <strong>{tp("role")}:</strong> {role}
+              </p>
+            )}
+            {description && <p>{description}</p>}
+            {responsibilities && responsibilities.length > 0 && (
+              <>
+                <p className={styles.portfolitm_detailsLabel}>
+                  {tp("whatIDid")}
+                </p>
+                <ul className={styles.portfolitm_responsibilities}>
+                  {responsibilities.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+            <p className={styles.portfolitm_notice}>
+              {tp("confidentialNotice")}
+            </p>
+          </div>
+        )}
+        {preview}
+      </div>
+    );
+  }
 
   return (
     <div className={styles.portfolitm} data-reveal>
@@ -27,16 +134,14 @@ export default function WorkCard({ data }: { data: Work }) {
         </span>
         <div className={styles.portfolitm_info}>
           / <span>{type}</span>
-          {" | "}
+          {" — "}
           <span>{typesofwork}</span>
         </div>
+        <span className="sr-only"> ({t("opensInNewTab")})</span>
       </a>
-      <div
-        className={styles.portpreview}
-        style={{
-          backgroundImage: `url('/assets/portfolio/${data.image}')`,
-        }}
-      ></div>
+      {badges}
+      {techList}
+      {preview}
     </div>
   );
 }

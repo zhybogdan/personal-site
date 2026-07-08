@@ -12,7 +12,15 @@ const works = defineCollection({
       type: localized,
       typesofwork: localized,
       technologies: s.string(),
-      link: s.string().url(),
+      platform: s.enum(["mobile", "web"]),
+      // Absent for confidential/NDA projects (mobile apps with nothing public
+      // to link to) — those render a case card instead of an external link.
+      link: s.string().url().optional(),
+      role: localized.optional(),
+      description: localized.optional(),
+      responsibilities: s
+        .object({ en: s.array(s.string()), uk: s.array(s.string()) })
+        .optional(),
       image: s.string(),
       order: s.number().default(0),
       path: s.path(),

@@ -9,9 +9,11 @@ export default function Logo({ label }: { label?: string }) {
       aria-label={label}
       className={cn(styles.logo, "hover-cursor")}
     >
-      <span className={styles.logo_el}></span>
-      <span className={styles.logo_el}></span>
-      <span className={styles.logo_el}></span>
+      {/* Monogram: bold "b" + a red signature dot. Decorative — the accessible
+          name comes from aria-label, so the mark itself is hidden from SR. */}
+      <span className={styles.mark} aria-hidden="true">
+        b<span className={styles.dot}>.</span>
+      </span>
     </Link>
   );
 }

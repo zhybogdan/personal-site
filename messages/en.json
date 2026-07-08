@@ -1,7 +1,7 @@
 {
   "meta": {
     "home": {
-      "title": "Bohdan — Software Engineer · Mobile & Web",
+      "title": "Mobile & Web Engineer — Flutter, React, Next.js",
       "description": "Software engineer building mobile & web apps with Flutter, React and Next.js — from idea to launch.",
       "keywords": [
         "software engineer",
@@ -17,8 +17,8 @@
       ]
     },
     "portfolio": {
-      "title": "Portfolio — Bohdan · Software Engineer",
-      "description": "Commercial projects: landing pages, corporate sites, business cards."
+      "title": "Portfolio · Mobile & Web Apps",
+      "description": "Selected work: mobile & web apps, commercial and personal projects."
     }
   },
   "hero": {
@@ -28,7 +28,7 @@
     "introBuild": "I build <typed></typed> — from idea to launch.",
     "introExperience": "A software engineer with 3+ years of experience across mobile and web.",
     "introApproach": "I care about clean architecture, smooth UX, and products that ship and last.",
-    "cta": "Portfolio",
+    "cta": "My work",
     "ctaContact": "Get in touch",
     "emailCopied": "Email copied ✓",
     "photoAlt": "A photo of me",
@@ -39,6 +39,12 @@
       "Flutter apps",
       "MVPs"
     ]
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "switchToEn": "Switch to English",
+    "switchToUk": "Switch to Ukrainian",
+    "opensInNewTab": "opens in a new tab"
   },
   "nav": {
     "home": "Home",
@@ -57,7 +63,15 @@
     "rights": "All rights reserved | {year}"
   },
   "portfolio": {
-    "title": "Commercial projects"
+    "title": "Projects",
+    "confidentialNotice": "Project details may be altered or omitted due to confidentiality.",
+    "role": "My role",
+    "whatIDid": "What I did",
+    "viewDetails": "View details",
+    "hideDetails": "Hide details",
+    "nda": "NDA",
+    "platformMobile": "Mobile",
+    "platformWeb": "Web"
   },
   "notFound": {
     "title": "Sorry, this page does not exist",

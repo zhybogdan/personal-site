@@ -3,7 +3,7 @@
 
 .portfolitm {
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: clamp(2.25rem, 5vw, 6.25rem); // fluid 36 → 100
   width: max-content;
 
   &:last-child {
@@ -11,7 +11,7 @@
   }
 
   &_info {
-    font-size: 14px;
+    font-size: clamp(0.625rem, 1.5vw, 0.875rem); // fluid 10 → 14
     transition: all 450ms ease-in-out;
   }
 
@@ -40,7 +40,7 @@
 
   &:hover {
     .portpreview {
-      width: 600px;
+      width: 37.5rem; // 600
     }
 
     .portfolitm_info {
@@ -55,12 +55,119 @@
   }
 }
 
+// Tech chips: mirror the home-page stack tags (sharp, muted, bordered) but a
+// touch smaller. Sit under the title, wrap on narrow cards.
+.portfolitm_techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-1;
+  max-width: 34rem;
+  margin: $space-2 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tech {
+  padding: 2px $space-2;
+  border: 1px solid var(--color-border);
+  font-size: $fs-xs; // 12
+  letter-spacing: 0.3px;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.techMore {
+  color: var(--color-fg);
+  border-color: var(--color-accent);
+}
+
+// --- Badges: platform (Mobile/Web) + confidential/NDA marker --- //
+// A flex row of its own — not inline with the type/typesofwork text — keeps
+// that line's (and therefore the max-content-sized card's) width from
+// ballooning past the viewport on narrow screens.
+.portfolitm_badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-1;
+  margin: $space-1 0 0;
+}
+
+.portfolitm_badge {
+  padding: 1px $space-2;
+  border: 1px solid var(--color-border);
+  font-size: $fs-xs;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.portfolitm_toggle {
+  display: inline-block;
+  margin: $space-3 0 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-fg);
+  background: none;
+  font: inherit;
+  font-size: $fs-sm;
+  letter-spacing: 0.3px;
+  color: var(--color-fg);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+}
+
+.portfolitm_details {
+  max-width: 34rem;
+  margin: $space-3 0 0;
+  padding: $space-3 0 0 $space-3;
+  border-left: 2px solid var(--color-border);
+  font-size: $fs-sm;
+  line-height: 1.5;
+  color: var(--color-fg);
+
+  p {
+    margin: 0 0 $space-2;
+  }
+
+  strong {
+    font-weight: $fw-semibold;
+  }
+}
+
+.portfolitm_detailsLabel {
+  font-size: $fs-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-muted);
+}
+
+.portfolitm_responsibilities {
+  margin: 0 0 $space-2;
+  padding: 0 0 0 $space-3;
+  list-style: disc;
+
+  li {
+    margin-bottom: 2px;
+  }
+}
+
+.portfolitm_notice {
+  font-size: $fs-xs;
+  font-style: italic;
+  color: var(--color-muted);
+}
+
 .portpreview {
   position: fixed;
   top: 15%;
   left: 54%;
   width: 0;
-  height: 400px;
+  height: 25rem; // 400
 
   overflow: hidden;
 
@@ -76,31 +183,22 @@
 
 @include bp(xl) {
   .portfolitm:hover .portpreview {
-    width: 500px;
-  }
-
-  .portfolitm {
-    margin-bottom: 85px;
+    width: 31.25rem; // 500
   }
 
   .portpreview {
-    left: 54%;
-    height: 320px;
+    height: 20rem; // 320
   }
 }
 
 @include bp(lg) {
-  .portfolitm {
-    margin-bottom: 75px;
-  }
-
   .portpreview {
     top: 19%;
-    height: 290px;
+    height: 18.125rem; // 290
   }
 
   .portfolitm:hover .portpreview {
-    width: 480px;
+    width: 30rem; // 480
   }
 }
 
@@ -112,40 +210,18 @@
   .portfolitm_info {
     transform: none !important;
   }
+
+  // No more hover preview to size against — let long titles/descriptions
+  // (e.g. confidential case cards) wrap within the viewport instead of
+  // shrink-wrapping to their unconstrained max-content width.
+  .portfolitm {
+    width: auto;
+    max-width: 100%;
+  }
 }
 
 @include bp(xs) {
-  .portfolitm {
-    margin-bottom: 50px;
-
-    span {
-      &::before {
-        width: 100%;
-      }
-    }
-  }
-}
-
-@include bp(425px) {
-  .portfolitm {
-    margin-bottom: 36px;
-  }
-}
-
-@include bp(414px) {
-  .portfolitm_info {
-    font-size: 13px;
-  }
-}
-
-@include bp(375px) {
-  .portfolitm_info {
-    font-size: 12px;
-  }
-}
-
-@include bp(350px) {
-  .portfolitm_info {
-    font-size: 10px;
+  .portfolitm span::before {
+    width: 100%;
   }
 }

@@ -6,12 +6,13 @@ firstWord:
   en: "Lathos"
   uk: "Lathos"
 type:
-  en: "landing page"
-  uk: "лендинг"
+  en: "Landing page"
+  uk: "Лендинг"
 typesofwork:
-  en: "development"
-  uk: "розробка"
+  en: "Development"
+  uk: "Розробка"
 technologies: "HTML, CSS, JavaScript, GSAP, Lottie, API, Zapier"
+platform: "web"
 link: "https://lathosclub.netlify.app/"
 image: "preview-portfolio-lathosclub.png"
 order: 1

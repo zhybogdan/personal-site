@@ -1,7 +1,7 @@
 {
   "meta": {
     "home": {
-      "title": "Богдан — Software Engineer · Mobile & Web",
+      "title": "Інженер Mobile & Web — Flutter, React, Next.js",
       "description": "Інженер-програміст: мобільні та веб-застосунки на Flutter, React і Next.js — від ідеї до релізу.",
       "keywords": [
         "software engineer",
@@ -17,8 +17,8 @@
       ]
     },
     "portfolio": {
-      "title": "Портфоліо — Богдан · Software Engineer",
-      "description": "Комерційні проєкти: лендинги, корпоративні сайти, візитки."
+      "title": "Портфоліо · Mobile & Web",
+      "description": "Вибрані роботи: мобільні та веб-застосунки, комерційні та особисті проєкти."
     }
   },
   "hero": {
@@ -28,7 +28,7 @@
     "introBuild": "Створюю <typed></typed> — від ідеї до релізу.",
     "introExperience": "Інженер-програміст із досвідом понад 3 роки в мобільній та веб-розробці.",
     "introApproach": "Ціную чисту архітектуру, зручний UX і продукти, які працюють довго.",
-    "cta": "Портфоліо",
+    "cta": "Роботи",
     "ctaContact": "Написати",
     "emailCopied": "Пошту скопійовано ✓",
     "photoAlt": "Моє фото",
@@ -39,6 +39,12 @@
       "Flutter-застосунки",
       "MVP"
     ]
+  },
+  "a11y": {
+    "skipToContent": "Перейти до вмісту",
+    "switchToEn": "Перемкнути на англійську",
+    "switchToUk": "Перемкнути на українську",
+    "opensInNewTab": "відкриється в новій вкладці"
   },
   "nav": {
     "home": "Головна",
@@ -57,7 +63,15 @@
     "rights": "Усі права захищено | {year}"
   },
   "portfolio": {
-    "title": "Комерційні проєкти"
+    "title": "Проєкти",
+    "confidentialNotice": "Деталі проєкту можуть бути змінені або опущені з огляду на конфіденційність.",
+    "role": "Моя роль",
+    "whatIDid": "Що робив",
+    "viewDetails": "Деталі проєкту",
+    "hideDetails": "Згорнути",
+    "nda": "NDA",
+    "platformMobile": "Мобільний",
+    "platformWeb": "Веб"
   },
   "notFound": {
     "title": "На жаль, такої сторінки не існує",

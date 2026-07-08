@@ -1,15 +1,17 @@
+@use "tokens" as *;
+
 .nomatch {
-  padding: 30px;
+  padding: $space-5;
 }
 
 .nomatch_title {
-  margin: 0 0 40px;
-  font-size: 40px;
+  margin: 0 0 $space-6;
+  font-size: $fs-title; // fluid 24 → 40
 }
 
 .nomatch_text {
   margin: 0;
-  font-size: 20px;
+  font-size: 1.25rem; // 20
 }
 
 .nomatch_linkhome {
