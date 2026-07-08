@@ -12,6 +12,7 @@ typesofwork:
   en: "Development"
   uk: "Розробка"
 technologies: "HTML, CSS, JavaScript GSAP, Lottie, Ajax"
+platform: "web"
 link: "https://quasar-develop.netlify.app/"
 image: "preview-portfolio-quasar.png"
 order: 2

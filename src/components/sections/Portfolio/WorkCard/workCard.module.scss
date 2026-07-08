@@ -81,6 +81,87 @@
   border-color: var(--color-accent);
 }
 
+// --- Badges: platform (Mobile/Web) + confidential/NDA marker --- //
+// A flex row of its own — not inline with the type/typesofwork text — keeps
+// that line's (and therefore the max-content-sized card's) width from
+// ballooning past the viewport on narrow screens.
+.portfolitm_badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-1;
+  margin: $space-1 0 0;
+}
+
+.portfolitm_badge {
+  padding: 1px $space-2;
+  border: 1px solid var(--color-border);
+  font-size: $fs-xs;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.portfolitm_toggle {
+  display: inline-block;
+  margin: $space-3 0 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-fg);
+  background: none;
+  font: inherit;
+  font-size: $fs-sm;
+  letter-spacing: 0.3px;
+  color: var(--color-fg);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+}
+
+.portfolitm_details {
+  max-width: 34rem;
+  margin: $space-3 0 0;
+  padding: $space-3 0 0 $space-3;
+  border-left: 2px solid var(--color-border);
+  font-size: $fs-sm;
+  line-height: 1.5;
+  color: var(--color-fg);
+
+  p {
+    margin: 0 0 $space-2;
+  }
+
+  strong {
+    font-weight: $fw-semibold;
+  }
+}
+
+.portfolitm_detailsLabel {
+  font-size: $fs-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-muted);
+}
+
+.portfolitm_responsibilities {
+  margin: 0 0 $space-2;
+  padding: 0 0 0 $space-3;
+  list-style: disc;
+
+  li {
+    margin-bottom: 2px;
+  }
+}
+
+.portfolitm_notice {
+  font-size: $fs-xs;
+  font-style: italic;
+  color: var(--color-muted);
+}
+
 .portpreview {
   position: fixed;
   top: 15%;
@@ -128,6 +209,14 @@
 
   .portfolitm_info {
     transform: none !important;
+  }
+
+  // No more hover preview to size against — let long titles/descriptions
+  // (e.g. confidential case cards) wrap within the viewport instead of
+  // shrink-wrapping to their unconstrained max-content width.
+  .portfolitm {
+    width: auto;
+    max-width: 100%;
   }
 }
 
