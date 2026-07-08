@@ -12,6 +12,7 @@ typesofwork:
   en: "Development"
   uk: "Розробка"
 technologies: "HTML, CSS, JavaScript, GSAP, Lottie, API, Zapier"
+platform: "web"
 link: "https://lathosclub.netlify.app/"
 image: "preview-portfolio-lathosclub.png"
 order: 1

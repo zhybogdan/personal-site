@@ -18,7 +18,7 @@
     },
     "portfolio": {
       "title": "Portfolio · Mobile & Web Apps",
-      "description": "Commercial projects: landing pages, corporate sites, business cards."
+      "description": "Selected work: mobile & web apps, commercial and personal projects."
     }
   },
   "hero": {
@@ -63,7 +63,15 @@
     "rights": "All rights reserved | {year}"
   },
   "portfolio": {
-    "title": "Commercial projects"
+    "title": "Projects",
+    "confidentialNotice": "Project details may be altered or omitted due to confidentiality.",
+    "role": "My role",
+    "whatIDid": "What I did",
+    "viewDetails": "View details",
+    "hideDetails": "Hide details",
+    "nda": "NDA",
+    "platformMobile": "Mobile",
+    "platformWeb": "Web"
   },
   "notFound": {
     "title": "Sorry, this page does not exist",
