@@ -1,7 +1,7 @@
 # Personal site — Bohdan
 
 Personal portfolio / business card of a software engineer (mobile & web).
-Live: https://bogdan.starcoding.top
+Live: https://justbogdan.netlify.app
 
 ## Tech stack
 

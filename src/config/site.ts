@@ -7,7 +7,7 @@ export type SocialItem = {
 
 // Structural, language-neutral config. All display text lives in messages/*.
 export const siteConfig = {
-  url: "https://bogdan.starcoding.top",
+  url: "https://justbogdan.netlify.app",
   email: "zhylkobogdan@gmail.com",
   ogImage: "/image-preview.png",
 
