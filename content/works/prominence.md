@@ -14,5 +14,5 @@ typesofwork:
 technologies: "HTML, CSS, JavaScript"
 link: "https://prominence-develop.netlify.app/"
 image: "preview-portfolio-prominence.png"
-order: 2
+order: 5
 ---
