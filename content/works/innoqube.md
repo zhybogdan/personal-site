@@ -15,5 +15,5 @@ technologies: "HTML, CSS, JavaScript GSAP, Lenis"
 platform: "web"
 link: "https://innoqube-development.netlify.app/"
 image: "preview-portfolio-innoqube.png"
-order: 3
+order: 7
 ---
