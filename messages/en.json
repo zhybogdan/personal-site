@@ -19,6 +19,10 @@
     "portfolio": {
       "title": "Portfolio · Mobile & Web Apps",
       "description": "Selected work: mobile & web apps, commercial and personal projects."
+    },
+    "about": {
+      "title": "About · Mobile & Web Apps",
+      "description": "Software engineer building web and mobile apps with React, Next.js and Flutter — how I work and what I work with."
     }
   },
   "hero": {
@@ -48,7 +52,58 @@
   },
   "nav": {
     "home": "Home",
+    "about": "About",
     "portfolio": "Portfolio"
+  },
+  "about": {
+    "title": "About",
+    "intro": {
+      "heading": "Coffee, code, and a little magic.",
+      "p1": "I'm Bohdan — a software engineer who lives on the part of a product people actually touch. For 3+ years I've been building web interfaces, and for the last year and a half I've been shipping cross-platform mobile apps with Flutter.",
+      "p2": "I started on the web with React and Next.js, then picked up Flutter when I wanted the same ideas to run natively in someone's pocket. These days I move between the two — a Next.js dashboard one week, a Flutter app the next.",
+      "p3": "What I care about doesn't change with the framework: architecture a future me can read, interfaces that feel obvious, and products that survive contact with real users."
+    },
+    "experience": {
+      "heading": "Experience",
+      "web": {
+        "unit": "years",
+        "label": "Web · Frontend",
+        "desc": "React, Next.js, TypeScript — from landing pages to full dashboards."
+      },
+      "mobile": {
+        "unit": "years",
+        "label": "Mobile",
+        "desc": "Flutter & Dart — cross-platform apps, from idea to store."
+      }
+    },
+    "stack": {
+      "heading": "What I work with",
+      "mobile": "Mobile",
+      "web": "Web",
+      "tools": "Tools"
+    },
+    "principles": {
+      "heading": "How I work",
+      "items": [
+        {
+          "title": "Architecture first",
+          "text": "I'd rather spend an hour naming things well than a week untangling them later. Structure is what keeps a project moving after month three."
+        },
+        {
+          "title": "UX isn't decoration",
+          "text": "If a user has to stop and think about the interface, the interface failed. Smoothness is a feature, not a finishing touch."
+        },
+        {
+          "title": "Ship, then sharpen",
+          "text": "A live product beats a perfect plan. I ship early and keep refining what real usage — not guesswork — reveals."
+        }
+      ]
+    },
+    "beyond": {
+      "heading": "Away from the screen",
+      "text": "When I step away from the editor, I keep the curiosity fed — new tools to try, ideas to sketch, and the occasional rabbit hole I probably didn't need to go down. It usually loops back into the work anyway."
+    },
+    "ctaLine": "Got a product to build — or just want to say hi?"
   },
   "sidebar": {
     "home": "Go to home",
