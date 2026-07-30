@@ -154,6 +154,13 @@
   list-style: none;
 }
 
+.stack_note {
+  margin: $space-5 0 0;
+  font-size: $fs-sm; // 14
+  line-height: $lh-base;
+  color: var(--color-muted);
+}
+
 // --- Principles --- //
 .principles {
   margin: 0;

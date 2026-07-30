@@ -15,3 +15,9 @@
     border-color: var(--color-accent);
   }
 }
+
+.tag_muted {
+  border-style: dashed;
+  font-style: italic;
+  opacity: 0.8;
+}

@@ -20,16 +20,62 @@ export const siteConfig = {
 
   // Skills grouped by area (About page). Language-neutral proper nouns.
   skills: {
-    mobile: ["Flutter", "Dart"],
-    web: ["React", "Next.js", "TypeScript", "JavaScript", "SCSS"],
-    tools: ["Git", "Figma", "REST APIs", "GSAP", "Netlify"],
+    mobile: [
+      "Flutter",
+      "Dart",
+      "Riverpod",
+      "Bloc",
+      "Dio",
+      "Retrofit",
+      "shared_preferences",
+      "Drift",
+      "go_router",
+      "get_it",
+      "Freezed",
+      "json_serializable",
+      "Firebase",
+      "Supabase",
+    ],
+    web: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Vite",
+      "Node.js",
+      "Tailwind CSS",
+      "SCSS",
+      "CSS Modules",
+      "Styled Components",
+      "Redux Toolkit",
+      "Zustand",
+      "React Query",
+      "Zod",
+      "React Hook Form",
+      "React Router",
+    ],
+    tools: [
+      "Git",
+      "GitHub",
+      "GitLab",
+      "Figma",
+      "REST APIs",
+      "Postman",
+      "GSAP",
+      "Netlify",
+      "ESLint",
+      "Prettier",
+      "Vitest",
+      "Storybook",
+      "Jira",
+    ],
   },
 
   // Experience tracks (About page). `value` is a language-neutral duration;
   // the unit/label/description live in messages/*.
   experience: [
     { key: "web", value: "3+" },
-    { key: "mobile", value: "1.5" },
+    { key: "mobile", value: "1.5+" },
   ] as ExperienceItem[],
 
   nav: [

@@ -24,7 +24,6 @@ export default function About() {
       <section className={styles.intro} data-reveal>
         <p className={styles.intro_lead}>{t("intro.heading")}</p>
         <p className={styles.intro_text}>{t("intro.p1")}</p>
-        <p className={styles.intro_text}>{t("intro.p2")}</p>
         <p className={styles.intro_text}>{t("intro.p3")}</p>
       </section>
 
@@ -68,41 +67,13 @@ export default function About() {
                 {siteConfig.skills[group].map((tech) => (
                   <Tag key={tech}>{tech}</Tag>
                 ))}
+                <Tag muted>{t("stack.more")}</Tag>
               </ul>
             </div>
           ))}
         </div>
-      </section>
-
-      {/* --- Principles --- */}
-      <section className={styles.block}>
-        <h2 className={styles.block_heading} data-reveal>
-          {t("principles.heading")}
-        </h2>
-        <ol className={styles.principles}>
-          {(t.raw("principles.items") as { title: string; text: string }[]).map(
-            (item, i) => (
-              <li className={styles.principle} key={item.title} data-reveal>
-                <span className={styles.principle_num}>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <p className={styles.principle_title}>{item.title}</p>
-                  <p className={styles.principle_text}>{item.text}</p>
-                </div>
-              </li>
-            ),
-          )}
-        </ol>
-      </section>
-
-      {/* --- Beyond code --- */}
-      <section className={styles.block}>
-        <h2 className={styles.block_heading} data-reveal>
-          {t("beyond.heading")}
-        </h2>
-        <p className={styles.beyond} data-reveal>
-          {t("beyond.text")}
+        <p className={styles.stack_note} data-reveal>
+          {t("stack.note")}
         </p>
       </section>
 
