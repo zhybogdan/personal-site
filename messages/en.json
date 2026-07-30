@@ -19,14 +19,19 @@
     "portfolio": {
       "title": "Portfolio · Mobile & Web Apps",
       "description": "Selected work: mobile & web apps, commercial and personal projects."
+    },
+    "about": {
+      "title": "About · Mobile & Web Apps",
+      "description": "Software engineer building web and mobile apps with React, Next.js and Flutter — how I work and what I work with."
     }
   },
   "hero": {
     "name": "Bohdan",
     "role": "Software Engineer · Mobile & Web",
+    "stackMore": "…and other fun stuff",
     "greeting": "Hello, humanity!",
     "introBuild": "I build <typed></typed> — from idea to launch.",
-    "introExperience": "A software engineer with 3+ years of experience across mobile and web.",
+    "introExperience": "A developer with 3+ years of experience across mobile and web.",
     "introApproach": "I care about clean architecture, smooth UX, and products that ship and last.",
     "cta": "My work",
     "ctaContact": "Get in touch",
@@ -48,7 +53,59 @@
   },
   "nav": {
     "home": "Home",
+    "about": "About",
     "portfolio": "Portfolio"
+  },
+  "about": {
+    "title": "About",
+    "intro": {
+      "heading": "Coffee, code, and a little magic.",
+      "p1": "I love the part of a product people actually touch. For 3+ years I've been building web interfaces, and for the last year and a half — mobile apps with Flutter too. (just don't break it)",
+      "p3": "The tool itself is a detail, really. PHP, .NET — whatever the stack, with AI you can find your footing fast."
+    },
+    "experience": {
+      "heading": "Experience",
+      "web": {
+        "unit": "years",
+        "label": "Web · Frontend",
+        "desc": "React, Next.js and the whole web zoo — from simple landing pages to full dashboards."
+      },
+      "mobile": {
+        "unit": "years",
+        "label": "Mobile",
+        "desc": "Flutter & Dart — cross-platform apps, from idea to store."
+      }
+    },
+    "stack": {
+      "heading": "What I work with",
+      "mobile": "Mobile",
+      "web": "Web",
+      "tools": "Tools",
+      "more": "…and more",
+      "note": "I'll pick what the project needs — a new stack is no problem."
+    },
+    "principles": {
+      "heading": "How I work",
+      "items": [
+        {
+          "title": "Architecture first",
+          "text": "I'd rather spend an hour naming things well than a week untangling them later. Structure is what keeps a project moving after month three."
+        },
+        {
+          "title": "UX isn't decoration",
+          "text": "If a user has to stop and think about the interface, the interface failed. Smoothness is a feature, not a finishing touch."
+        },
+        {
+          "title": "Ship, then sharpen",
+          "text": "A live product beats a perfect plan. I ship early and keep refining what real usage — not guesswork — reveals."
+        }
+      ]
+    },
+    "beyond": {
+      "heading": "Away from the screen",
+      "text": "When I step away from the editor, I keep the curiosity fed — new tools to try, ideas to sketch, and the occasional rabbit hole I probably didn't need to go down. It usually loops back into the work anyway."
+    },
+    "ctaLine": "Got a product to build or a hypothesis to test?"
   },
   "sidebar": {
     "home": "Go to home",

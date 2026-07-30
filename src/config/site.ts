@@ -1,4 +1,5 @@
-export type NavItem = { key: "home" | "portfolio"; href: string };
+export type NavItem = { key: "home" | "about" | "portfolio"; href: string };
+export type ExperienceItem = { key: "web" | "mobile"; value: string };
 export type SocialItem = {
   name: string;
   href: string;
@@ -17,8 +18,69 @@ export const siteConfig = {
   // Featured tech (language-neutral proper nouns).
   stack: ["Flutter", "Dart", "React", "Next.js", "TypeScript"],
 
+  // Skills grouped by area (About page). Language-neutral proper nouns.
+  skills: {
+    mobile: [
+      "Flutter",
+      "Dart",
+      "Riverpod",
+      "Bloc",
+      "Dio",
+      "Retrofit",
+      "shared_preferences",
+      "Drift",
+      "go_router",
+      "get_it",
+      "Freezed",
+      "json_serializable",
+      "Firebase",
+      "Supabase",
+    ],
+    web: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Vite",
+      "Node.js",
+      "Tailwind CSS",
+      "SCSS",
+      "CSS Modules",
+      "Styled Components",
+      "Redux Toolkit",
+      "Zustand",
+      "React Query",
+      "Zod",
+      "React Hook Form",
+      "React Router",
+    ],
+    tools: [
+      "Git",
+      "GitHub",
+      "GitLab",
+      "Figma",
+      "REST APIs",
+      "Postman",
+      "GSAP",
+      "Netlify",
+      "ESLint",
+      "Prettier",
+      "Vitest",
+      "Storybook",
+      "Jira",
+    ],
+  },
+
+  // Experience tracks (About page). `value` is a language-neutral duration;
+  // the unit/label/description live in messages/*.
+  experience: [
+    { key: "web", value: "3+" },
+    { key: "mobile", value: "1.5+" },
+  ] as ExperienceItem[],
+
   nav: [
     { key: "home", href: "/" },
+    { key: "about", href: "/about" },
     { key: "portfolio", href: "/portfolio" },
   ] as NavItem[],
 

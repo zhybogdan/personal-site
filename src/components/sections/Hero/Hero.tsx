@@ -24,7 +24,7 @@ export default function Hero() {
           <h1 className={styles.maininfo_name}>{t("name")}</h1>
           <p className={styles.maininfo_type}>{t("role")}</p>
 
-          <StackList items={siteConfig.stack} />
+          <StackList items={siteConfig.stack} more={t("stackMore")} />
 
           <div className={styles.maininfo_desc}>
             <p className={styles.maininfo_text}>{t("greeting")}</p>
