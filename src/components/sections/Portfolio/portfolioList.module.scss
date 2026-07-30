@@ -12,6 +12,49 @@
   line-height: 1.1;
 }
 
+// --- Platform filter --- //
+.porfolio_filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  margin: 0 0 $space-6; // 40
+}
+
+.filter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: $space-1;
+  padding: $space-1 $space-3;
+  border: 1px solid var(--color-border);
+  background: none;
+  font: inherit;
+  font-size: $fs-xs; // 12
+  font-weight: $fw-semibold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition:
+    color $dur-fast $ease-standard,
+    border-color $dur-fast $ease-standard;
+
+  &:hover {
+    border-color: var(--color-fg);
+    color: var(--color-fg);
+  }
+}
+
+.filter_active {
+  border-color: var(--color-accent);
+  color: var(--color-fg);
+}
+
+.filter_count {
+  font-size: 0.625rem; // 10
+  font-variant-numeric: tabular-nums;
+  color: var(--color-muted);
+}
+
 .porfolio_items {
   margin: 0 0 $space-10; // 100
   padding: 0 0 0 $space-8; // 60
