@@ -15,5 +15,5 @@ technologies: "HTML, CSS, JavaScript"
 platform: "web"
 link: "https://prominence-develop.netlify.app/"
 image: "preview-portfolio-prominence.png"
-order: 5
+order: 9
 ---
