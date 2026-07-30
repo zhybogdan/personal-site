@@ -121,6 +121,8 @@
   },
   "portfolio": {
     "title": "Projects",
+    "filterAll": "All",
+    "filterLabel": "Filter projects by platform",
     "confidentialNotice": "Project details may be altered or omitted due to confidentiality.",
     "role": "My role",
     "whatIDid": "What I did",
