@@ -8,11 +8,16 @@ export type SocialItem = {
 
 // Structural, language-neutral config. All display text lives in messages/*.
 export const siteConfig = {
-  url: "https://justbogdan.netlify.app",
+  url: "https://shipsharp.netlify.app",
   email: "zhylkobogdan@gmail.com",
-  ogImage: "/image-preview.png",
+  ogImage: "/image-preview.jpg",
 
-  // Brand / person name — used for OG siteName and metadata authors.
+  // Brand the site publishes under (OG siteName, PWA manifest, matches the
+  // domain). Kept separate from `author`: the site has a brand, the work has
+  // a person behind it.
+  brand: "shipsharp",
+
+  // Real person — used for the `authors` metadata field.
   author: "Bohdan Zhylko",
 
   // Featured tech (language-neutral proper nouns).

@@ -2,7 +2,7 @@
   "name": "personal-site",
   "version": "0.2.0",
   "private": true,
-  "homepage": "https://justbogdan.netlify.app/",
+  "homepage": "https://shipsharp.netlify.app/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
