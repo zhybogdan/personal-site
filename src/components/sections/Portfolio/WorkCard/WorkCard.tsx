@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type TransitionEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 
 import type { Work } from "@content";
+import { cn } from "@/lib/cn";
+import { ScrollTrigger } from "@/lib/gsap";
 import styles from "./workCard.module.scss";
 
 export default function WorkCard({ data }: { data: Work }) {
@@ -11,6 +13,18 @@ export default function WorkCard({ data }: { data: Work }) {
   const t = useTranslations("a11y");
   const tp = useTranslations("portfolio");
   const [expanded, setExpanded] = useState(false);
+  const panelId = `work-details-${data.slug}`;
+
+  // Expanding a card changes page height, so every ScrollTrigger start below
+  // it goes stale. Recalculate once the panel has settled at its final size.
+  const handlePanelTransitionEnd = (event: TransitionEvent<HTMLDivElement>) => {
+    if (
+      event.target === event.currentTarget &&
+      event.propertyName === "grid-template-rows"
+    ) {
+      ScrollTrigger.refresh();
+    }
+  };
 
   const title = data.title[locale];
   const firstWord = data.firstWord[locale];
@@ -84,35 +98,48 @@ export default function WorkCard({ data }: { data: Work }) {
           type="button"
           className={styles.portfolitm_toggle}
           aria-expanded={expanded}
+          aria-controls={panelId}
           onClick={() => setExpanded((v) => !v)}
         >
           {expanded ? tp("hideDetails") : tp("viewDetails")}
         </button>
-        {expanded && (
-          <div className={styles.portfolitm_details}>
-            {role && (
-              <p>
-                <strong>{tp("role")}:</strong> {role}
-              </p>
-            )}
-            {description && <p>{description}</p>}
-            {responsibilities && responsibilities.length > 0 && (
-              <>
-                <p className={styles.portfolitm_detailsLabel}>
-                  {tp("whatIDid")}
+        {/* Panel stays mounted so it can animate open/closed; the collapsed
+            state is `visibility: hidden`, which also keeps it out of the
+            accessibility tree and out of the reading order. */}
+        <div
+          id={panelId}
+          className={cn(
+            styles.portfolitm_panel,
+            expanded && styles.portfolitm_panel_open,
+          )}
+          onTransitionEnd={handlePanelTransitionEnd}
+        >
+          <div className={styles.portfolitm_panelInner}>
+            <div className={styles.portfolitm_details}>
+              {role && (
+                <p>
+                  <strong>{tp("role")}:</strong> {role}
                 </p>
-                <ul className={styles.portfolitm_responsibilities}>
-                  {responsibilities.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </>
-            )}
-            <p className={styles.portfolitm_notice}>
-              {tp("confidentialNotice")}
-            </p>
+              )}
+              {description && <p>{description}</p>}
+              {responsibilities && responsibilities.length > 0 && (
+                <>
+                  <p className={styles.portfolitm_detailsLabel}>
+                    {tp("whatIDid")}
+                  </p>
+                  <ul className={styles.portfolitm_responsibilities}>
+                    {responsibilities.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              <p className={styles.portfolitm_notice}>
+                {tp("confidentialNotice")}
+              </p>
+            </div>
           </div>
-        )}
+        </div>
         {preview}
       </div>
     );

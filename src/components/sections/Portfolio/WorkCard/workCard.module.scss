@@ -121,6 +121,52 @@
   }
 }
 
+// --- Expandable case details --- //
+// Height animation via the grid `0fr → 1fr` trick: the panel is a one-row
+// grid, the inner wrapper clips the overflow, so the row track interpolates
+// smoothly without ever hard-coding a max-height.
+// `visibility` flips instantly on open and only after the collapse finishes,
+// which keeps the collapsed copy out of the accessibility tree.
+.portfolitm_panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows $dur-base $ease-out-soft,
+    visibility 0s linear $dur-base;
+
+  &_open {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition:
+      grid-template-rows $dur-base $ease-out-soft,
+      visibility 0s;
+
+    .portfolitm_details {
+      opacity: 1;
+      transform: none;
+      // Opening only: let the height get moving before the text fades in.
+      // Closing keeps the undelayed base transition.
+      transition:
+        opacity $dur-fast $ease-out-soft $dur-fast,
+        transform $dur-base $ease-out-soft;
+    }
+  }
+}
+
+// Global reduced-motion rules zero out durations but not delays — drop the
+// deferred `visibility` flip too, so collapsing hides the panel immediately.
+@media (prefers-reduced-motion: reduce) {
+  .portfolitm_panel {
+    transition-delay: 0s;
+  }
+}
+
+.portfolitm_panelInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
 .portfolitm_details {
   max-width: 34rem;
   margin: $space-3 0 0;
@@ -129,6 +175,14 @@
   font-size: $fs-sm;
   line-height: 1.5;
   color: var(--color-fg);
+
+  // Content trails the height slightly, so the panel reads as unfolding
+  // rather than as a block that pops in at full opacity.
+  opacity: 0;
+  transform: translateY(-0.375rem); // 6
+  transition:
+    opacity $dur-fast $ease-out-soft,
+    transform $dur-base $ease-out-soft;
 
   p {
     margin: 0 0 $space-2;

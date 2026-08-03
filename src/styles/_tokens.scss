@@ -83,6 +83,8 @@ $dur-slow: 800ms;
 $ease-standard: linear;
 $ease-emphasized: cubic-bezier(0.84, 0, 0.08, 0.99);
 $ease-nav: cubic-bezier(0.39, 0.91, 0.43, 0.77);
+// Expand/collapse: quick start, soft settle.
+$ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
 // --- Z-index --- //
 $z-base: 1;
