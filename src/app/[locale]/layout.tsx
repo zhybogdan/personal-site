@@ -5,6 +5,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import "normalize.css";
+import "lenis/dist/lenis.css";
 import "../globals.scss";
 
 import { routing } from "@/i18n/routing";
