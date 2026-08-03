@@ -10,7 +10,7 @@ import "../globals.scss";
 
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
-import { localizedAlternates } from "@/lib/seo";
+import { localizedAlternates, localizedOpenGraph } from "@/lib/seo";
 import Cursor from "@/components/layout/Cursor/Cursor";
 import Background from "@/components/layout/Background/Background";
 import AppShell from "@/components/layout/AppShell/AppShell";
@@ -49,15 +49,11 @@ export async function generateMetadata({
       ],
       shortcut: "/favicon.png",
     },
-    openGraph: {
-      type: "website",
-      url: `${siteConfig.url}/${locale}`,
+    openGraph: localizedOpenGraph({
+      locale,
       title: t("title"),
       description: t("description"),
-      siteName: siteConfig.author,
-      locale: locale === "uk" ? "uk_UA" : "en_US",
-      images: [siteConfig.ogImage],
-    },
+    }),
   };
 }
 

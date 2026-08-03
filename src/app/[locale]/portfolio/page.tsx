@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { localizedAlternates } from "@/lib/seo";
+import { localizedAlternates, localizedOpenGraph } from "@/lib/seo";
 import PortfolioList from "@/components/sections/Portfolio/PortfolioList";
 
 export async function generateMetadata({
@@ -16,6 +16,12 @@ export async function generateMetadata({
     title: t("title"),
     description: t("description"),
     alternates: localizedAlternates(locale, "/portfolio"),
+    openGraph: localizedOpenGraph({
+      locale,
+      route: "/portfolio",
+      title: t("title"),
+      description: t("description"),
+    }),
   };
 }
 

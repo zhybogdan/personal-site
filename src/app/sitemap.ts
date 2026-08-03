@@ -3,7 +3,10 @@ import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
 
-const routes = ["", "/portfolio"];
+// Locale-agnostic paths; every entry is emitted once per locale below.
+// Keep in sync with `src/app/[locale]/` — a new route is invisible to crawlers
+// until it is listed here.
+const routes = ["", "/about", "/portfolio"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
