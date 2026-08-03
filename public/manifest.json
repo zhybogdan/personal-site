@@ -1,6 +1,7 @@
 {
-  "short_name": "Разработка сайтов под ключ",
-  "name": "Богдан | Разработка сайтов под ключ",
+  "short_name": "shipsharp",
+  "name": "Bohdan Zhylko — Mobile & Web Engineer",
+  "description": "Software engineer building mobile & web apps with Flutter, React and Next.js.",
   "icons": [
     {
       "src": "icon.svg",
@@ -13,7 +14,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#18181e",
   "background_color": "#ffffff"
