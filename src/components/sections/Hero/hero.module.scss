@@ -38,7 +38,7 @@
     z-index: 10;
   }
 
-  &_name {
+  &_headline {
     margin: 0;
     font-size: $fs-hero; // fluid 44 → 70
     font-weight: $fw-black;
@@ -90,7 +90,7 @@
 
 @include bp(ml) {
   .home::before,
-  .maininfo_name br {
+  .maininfo_headline br {
     display: none;
   }
 
