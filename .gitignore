@@ -32,3 +32,10 @@ next-env.d.ts
 
 # legacy CRA source (kept for reference)
 /_legacy
+
+# local working material, never shipped and never tracked: source photos, the
+# hero parallax pipeline (scripts, model weights, intermediates), scratch notes
+/reference
+
+__pycache__/
+*.pyc
