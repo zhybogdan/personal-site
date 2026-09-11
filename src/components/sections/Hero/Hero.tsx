@@ -21,7 +21,7 @@ export default function Hero() {
       <div className={styles.home_wrapp}>
         <ProfileImage alt={t("photoAlt")} />
         <div className={styles.maininfo} data-reveal>
-          <h1 className={styles.maininfo_name}>{t("name")}</h1>
+          <h1 className={styles.maininfo_headline}>{t("headline")}</h1>
           <p className={styles.maininfo_type}>{t("role")}</p>
 
           <StackList items={siteConfig.stack} more={t("stackMore")} />
