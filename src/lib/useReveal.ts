@@ -18,6 +18,7 @@ import { gsap, useGSAP } from "@/lib/gsap";
 export function useReveal(
   scope: RefObject<HTMLElement | null>,
   dependencies?: unknown[],
+  { start = "top 90%", stagger = 0.08 } = {},
 ) {
   useGSAP(
     () => {
@@ -33,8 +34,8 @@ export function useReveal(
             opacity: 1,
             duration: 0.7,
             ease: "power2.out",
-            delay: (i % 4) * 0.08,
-            scrollTrigger: { trigger: el, start: "top 90%", once: true },
+            delay: (i % 4) * stagger,
+            scrollTrigger: { trigger: el, start, once: true },
           });
         });
       });

@@ -3,7 +3,7 @@
 
 .portfolitm {
   position: relative;
-  margin-bottom: clamp(2.25rem, 5vw, 6.25rem); // fluid 36 → 100
+  margin-bottom: clamp(2rem, 4vw, 4.5rem); // fluid 32 → 72
   width: max-content;
 
   &:last-child {

@@ -12,12 +12,23 @@
   line-height: 1.1;
 }
 
-// --- Project sections --- //
+// --- Project sections and platforms --- //
+.porfolio_controls {
+  display: grid;
+  gap: $space-3;
+  margin: 0 0 $space-6; // 40
+}
+
 .porfolio_filters {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: $space-2;
-  margin: 0 0 $space-6; // 40
+}
+
+.filter_label {
+  font-size: $fs-xs;
+  color: var(--color-muted);
 }
 
 .filter {
@@ -38,9 +49,14 @@
     color $dur-fast $ease-standard,
     border-color $dur-fast $ease-standard;
 
-  &:hover {
+  &:enabled:hover {
     border-color: var(--color-fg);
     color: var(--color-fg);
+  }
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: default;
   }
 }
 
