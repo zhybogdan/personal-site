@@ -17,8 +17,8 @@
       ]
     },
     "portfolio": {
-      "title": "Portfolio · Mobile & Web Apps",
-      "description": "Selected work: mobile & web apps, commercial and personal projects."
+      "title": "Projects · Mobile & Web",
+      "description": "Public projects and experience building mobile and web applications."
     },
     "about": {
       "title": "About · Software Engineer",
@@ -54,7 +54,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "portfolio": "Portfolio"
+    "portfolio": "Projects"
   },
   "about": {
     "title": "About",
@@ -121,10 +121,10 @@
   },
   "portfolio": {
     "title": "Projects",
-    "filterAll": "All",
-    "filterLabel": "Filter projects by platform",
-    "confidentialNotice": "Project details may be altered or omitted due to confidentiality.",
-    "role": "My role",
+    "publicProjects": "Public projects",
+    "workExperience": "Work experience",
+    "sectionLabel": "Project sections",
+    "confidentialNotice": "These projects are under NDA. The case studies focus on my role and contributions.",
     "whatIDid": "What I did",
     "viewDetails": "View details",
     "hideDetails": "Hide details",

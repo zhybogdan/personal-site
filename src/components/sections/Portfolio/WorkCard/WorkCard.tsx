@@ -44,15 +44,6 @@ export default function WorkCard({ data }: { data: Work }) {
   const shownTechs = techs.slice(0, MAX_TECHS);
   const extraTechs = techs.length - shownTechs.length;
 
-  const preview = (
-    <div
-      className={styles.portpreview}
-      style={{
-        backgroundImage: `url('/assets/portfolio/${data.image}')`,
-      }}
-    />
-  );
-
   const platformLabel = tp(
     data.platform === "mobile" ? "platformMobile" : "platformWeb",
   );
@@ -79,11 +70,14 @@ export default function WorkCard({ data }: { data: Work }) {
     </ul>
   );
 
-  // No public link (confidential mobile work under NDA) → render a case
+  // No public link (confidential work under NDA) → render a case
   // card: title stays static, details expand in place instead of navigating.
   if (!data.link) {
     return (
-      <div className={styles.portfolitm} data-reveal>
+      <div
+        className={cn(styles.portfolitm, styles.portfolitm_case)}
+        data-reveal
+      >
         <div className={styles.portfolitm_link}>
           <span className={styles.portfolitm_link_title}>{title}</span>
           <div className={styles.portfolitm_info}>
@@ -92,61 +86,59 @@ export default function WorkCard({ data }: { data: Work }) {
             <span>{typesofwork}</span>
           </div>
         </div>
+        {role && <p className={styles.portfolitm_role}>{role}</p>}
         {badges}
         {techList}
-        <button
-          type="button"
-          className={styles.portfolitm_toggle}
-          aria-expanded={expanded}
-          aria-controls={panelId}
-          onClick={() => setExpanded((v) => !v)}
-        >
-          {expanded ? tp("hideDetails") : tp("viewDetails")}
-        </button>
-        {/* Panel stays mounted so it can animate open/closed; the collapsed
-            state is `visibility: hidden`, which also keeps it out of the
-            accessibility tree and out of the reading order. */}
-        <div
-          id={panelId}
-          className={cn(
-            styles.portfolitm_panel,
-            expanded && styles.portfolitm_panel_open,
-          )}
-          onTransitionEnd={handlePanelTransitionEnd}
-        >
-          <div className={styles.portfolitm_panelInner}>
-            <div className={styles.portfolitm_details}>
-              {role && (
-                <p>
-                  <strong>{tp("role")}:</strong> {role}
-                </p>
+        {description || responsibilities?.length ? (
+          <>
+            <button
+              type="button"
+              className={styles.portfolitm_toggle}
+              aria-expanded={expanded}
+              aria-controls={panelId}
+              onClick={() => setExpanded((v) => !v)}
+            >
+              {expanded ? tp("hideDetails") : tp("viewDetails")}
+            </button>
+            {/* Keep the panel mounted for the transition. CSS hides it from
+                the accessibility tree when it is collapsed. */}
+            <div
+              id={panelId}
+              className={cn(
+                styles.portfolitm_panel,
+                expanded && styles.portfolitm_panel_open,
               )}
-              {description && <p>{description}</p>}
-              {responsibilities && responsibilities.length > 0 && (
-                <>
-                  <p className={styles.portfolitm_detailsLabel}>
-                    {tp("whatIDid")}
-                  </p>
-                  <ul className={styles.portfolitm_responsibilities}>
-                    {responsibilities.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </>
-              )}
-              <p className={styles.portfolitm_notice}>
-                {tp("confidentialNotice")}
-              </p>
+              onTransitionEnd={handlePanelTransitionEnd}
+            >
+              <div className={styles.portfolitm_panelInner}>
+                <div className={styles.portfolitm_details}>
+                  {description && <p>{description}</p>}
+                  {responsibilities && responsibilities.length > 0 && (
+                    <>
+                      <p className={styles.portfolitm_detailsLabel}>
+                        {tp("whatIDid")}
+                      </p>
+                      <ul className={styles.portfolitm_responsibilities}>
+                        {responsibilities.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        {preview}
+          </>
+        ) : null}
       </div>
     );
   }
 
   return (
-    <div className={styles.portfolitm} data-reveal>
+    <div
+      className={cn(styles.portfolitm, styles.portfolitm_public)}
+      data-reveal
+    >
       <a
         href={data.link}
         target="_blank"
@@ -168,7 +160,13 @@ export default function WorkCard({ data }: { data: Work }) {
       </a>
       {badges}
       {techList}
-      {preview}
+      <div
+        className={styles.portpreview}
+        aria-hidden="true"
+        style={{
+          backgroundImage: `url('/assets/portfolio/${data.image}')`,
+        }}
+      />
     </div>
   );
 }

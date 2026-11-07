@@ -12,7 +12,7 @@
   line-height: 1.1;
 }
 
-// --- Platform filter --- //
+// --- Project sections --- //
 .porfolio_filters {
   display: flex;
   flex-wrap: wrap;
@@ -53,6 +53,19 @@
   font-size: 0.625rem; // 10
   font-variant-numeric: tabular-nums;
   color: var(--color-muted);
+}
+
+.experience_note {
+  margin: 0 0 $space-5;
+  color: var(--color-muted);
+  font-size: $fs-sm;
+}
+
+@media (pointer: coarse) {
+  .filter {
+    min-height: 2.75rem;
+    align-items: center;
+  }
 }
 
 .porfolio_items {
