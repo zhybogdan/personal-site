@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { works } from "@content";
 
@@ -9,71 +9,115 @@ import { useReveal } from "@/lib/useReveal";
 import WorkCard from "./WorkCard/WorkCard";
 import styles from "./portfolioList.module.scss";
 
-type Filter = "all" | "mobile" | "web";
+const orderedWorks = [...works].sort((a, b) => a.order - b.order);
+const sections = {
+  publicProjects: orderedWorks.filter((work) => work.link),
+  workExperience: orderedWorks.filter((work) => !work.link),
+};
+const sectionKeys = ["publicProjects", "workExperience"] as const;
+type Section = (typeof sectionKeys)[number];
+const availableSections = sectionKeys.filter((key) => sections[key].length > 0);
+
+const platformLabels = {
+  all: "allPlatforms",
+  mobile: "mobileProjects",
+  web: "platformWeb",
+} as const;
+type PlatformFilter = keyof typeof platformLabels;
+const platformKeys = ["all", "mobile", "web"] as const;
 
 export default function PortfolioList() {
   const t = useTranslations("portfolio");
   const rootRef = useRef<HTMLDivElement>(null);
-  const [filter, setFilter] = useState<Filter>("all");
-  useReveal(rootRef, [filter]);
+  const [section, setSection] = useState<Section>(
+    availableSections[0] ?? "publicProjects",
+  );
+  const [platform, setPlatform] = useState<PlatformFilter>("all");
+  useReveal(rootRef, [section, platform], {
+    start: "top bottom+=80",
+    stagger: 0,
+  });
 
-  const items = useMemo(() => [...works].sort((a, b) => a.order - b.order), []);
-
-  // Only offer a platform chip that actually matches something, so an empty
-  // result state is unreachable.
-  const filters = useMemo(() => {
-    const counts: Record<Filter, number> = {
-      all: items.length,
-      mobile: items.filter((item) => item.platform === "mobile").length,
-      web: items.filter((item) => item.platform === "web").length,
-    };
-
-    return (["all", "mobile", "web"] as const)
-      .filter((value) => counts[value] > 0)
-      .map((value) => ({ value, count: counts[value] }));
-  }, [items]);
-
-  const visible =
-    filter === "all" ? items : items.filter((item) => item.platform === filter);
-
-  const label = (value: Filter) =>
-    value === "all"
-      ? t("filterAll")
-      : value === "mobile"
-        ? t("platformMobile")
-        : t("platformWeb");
+  const sectionWorks = sections[section];
+  const worksByPlatform = {
+    all: sectionWorks,
+    mobile: sectionWorks.filter((work) => work.platform === "mobile"),
+    web: sectionWorks.filter((work) => work.platform === "web"),
+  };
 
   return (
     <div className={styles.porfolio} ref={rootRef}>
       <div>
         <h1 className={styles.porfolio_title}>{t("title")}</h1>
-        {filters.length > 1 && (
-          <div
-            className={styles.porfolio_filters}
-            role="group"
-            aria-label={t("filterLabel")}
-          >
-            {filters.map(({ value, count }) => (
-              <button
-                key={value}
-                type="button"
-                className={cn(
-                  styles.filter,
-                  "hover-cursor",
-                  filter === value && styles.filter_active,
-                )}
-                aria-pressed={filter === value}
-                onClick={() => setFilter(value)}
+        {availableSections.length > 0 && (
+          <div className={styles.porfolio_controls}>
+            {availableSections.length > 1 && (
+              <div
+                className={styles.porfolio_filters}
+                role="group"
+                aria-label={t("sectionLabel")}
               >
-                {label(value)}
-                <span className={styles.filter_count}>{count}</span>
-              </button>
-            ))}
+                {availableSections.map((key) => (
+                  <button
+                    key={key}
+                    type="button"
+                    className={cn(
+                      styles.filter,
+                      "hover-cursor",
+                      section === key && styles.filter_active,
+                    )}
+                    aria-pressed={section === key}
+                    onClick={() => {
+                      if (section === key) return;
+                      setSection(key);
+                      setPlatform("all");
+                    }}
+                  >
+                    {t(key)}
+                    <span className={styles.filter_count}>
+                      {sections[key].length}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
+            <div
+              className={styles.porfolio_filters}
+              role="group"
+              aria-label={t("platformFilter")}
+            >
+              <span className={styles.filter_label} aria-hidden="true">
+                {t("platformFilter")}
+              </span>
+              {platformKeys.map((key) => {
+                const count = worksByPlatform[key].length;
+                return (
+                  <button
+                    key={key}
+                    type="button"
+                    className={cn(
+                      styles.filter,
+                      count > 0 && "hover-cursor",
+                      platform === key && styles.filter_active,
+                    )}
+                    aria-pressed={platform === key}
+                    disabled={count === 0}
+                    onClick={() => setPlatform(key)}
+                  >
+                    {t(platformLabels[key])}
+                    <span className={styles.filter_count}>{count}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         )}
         <div className={styles.porfolio_items}>
+          {section === "workExperience" && (
+            <p className={styles.experience_note}>{t("confidentialNotice")}</p>
+          )}
           <div className={styles.porfolio_list}>
-            {visible.map((item) => (
+            {worksByPlatform[platform].map((item) => (
               <WorkCard key={item.slug} data={item} />
             ))}
           </div>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Source_Sans_3 } from "next/font/google";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -15,9 +15,9 @@ import Cursor from "@/components/layout/Cursor/Cursor";
 import Background from "@/components/layout/Background/Background";
 import AppShell from "@/components/layout/AppShell/AppShell";
 
-const sourceSans = Source_Sans_3({
-  subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "600", "700", "900"],
+const sourceSans = localFont({
+  src: "../fonts/SourceSans3-Variable.woff2",
+  weight: "200 900",
   variable: "--font-sans",
   display: "swap",
 });

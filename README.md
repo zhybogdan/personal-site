@@ -5,7 +5,7 @@ Live: https://shipsharp.netlify.app
 
 ## Tech stack
 
-- **Next.js 15** (App Router) + **React 19** + **TypeScript**
+- **Next.js 16** (App Router) + **React 19** + **TypeScript**
 - **SCSS Modules** with a design-token layer (`src/styles`)
 - **velite** content layer — portfolio items and posts authored as Markdown/MDX
 - **GSAP** (`@gsap/react`) for animation
@@ -42,7 +42,7 @@ content/
 
 ## Local development
 
-Requires Node 20 (see `.nvmrc`).
+Requires Node.js 24 (see `.nvmrc`, which Netlify also uses).
 
 ```bash
 npm install
