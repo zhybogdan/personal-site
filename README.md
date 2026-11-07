@@ -42,7 +42,7 @@ content/
 
 ## Local development
 
-Requires Node 20 (see `.nvmrc`).
+Requires Node.js 24 (see `.nvmrc`, which Netlify also uses).
 
 ```bash
 npm install
