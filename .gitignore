@@ -37,5 +37,11 @@ next-env.d.ts
 # hero parallax pipeline (scripts, model weights, intermediates), scratch notes
 /reference
 
+# local agent instructions, Studio Kit links and machine-specific Codex settings
+/AGENTS.md
+/.agents/skills/
+/.codex/config.toml
+/.codex/hooks.json
+
 __pycache__/
 *.pyc
